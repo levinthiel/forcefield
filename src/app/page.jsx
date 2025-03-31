@@ -1,11 +1,13 @@
 "use client"
 import styles from "./page.module.css";
 import styled from "styled-components";
+import Header from "../app/components/Header"
 
 
 export default function Home() {
   return (
     <StyledContainer>
+      <Header/>
       <main className={styles.main}>
         
       </main>
@@ -17,9 +19,10 @@ export default function Home() {
 }
 
 const StyledContainer = styled.div `
- background: red;
+ background: var(--black);
  height: 100%;
  width: 100%;
  padding: 40px;
  display: block;
+ opacity: 0.6;
 `;
