@@ -43,7 +43,15 @@ export default function Header() {
                     <LogoTextBar5></LogoTextBar5>
                 </LogoTextBars>
             </LogoText>
-            <LogoIcon></LogoIcon>
+            <LogoIcon>
+                <Image
+                            src="/forcefield-icon.svg"
+                            alt="forcefield-icon"
+                            width={132}  // Set the width
+                            height={152} // Set the height
+                            layout="responsive"
+                />
+            </LogoIcon>
             <SubTitleContainer>
                 <SubtitleDeco>
                     <div>
@@ -142,6 +150,7 @@ const LogoTextBar5 = styled.div`
 const LogoIcon = styled.div`
     width: 20%;
     border-right: 4px solid var(--orange);
+    padding: 40px;
 `;
 const SubTitleContainer = styled.div`
     width: 20%;
