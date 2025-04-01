@@ -25,4 +25,8 @@ const StyledContainer = styled.div `
  padding: 40px;
  display: block;
  opacity: 0.6;
+
+ @media (max-width: 400px) {
+      padding: 10px;
+    }
 `;

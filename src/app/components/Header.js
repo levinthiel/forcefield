@@ -128,6 +128,7 @@ const LogoText = styled.div `
     @media (max-width: 400px) {
         font-size: 18px;
         width: 100%;
+        padding: 10px;
     }
 `;
 const LogoTextBars = styled.div`
