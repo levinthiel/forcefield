@@ -14,7 +14,7 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 const poppins = Poppins({
-  weight: ['400', '700'],
+  weight: ['200','400', '700'],
   subsets: ["latin"],
 });
 

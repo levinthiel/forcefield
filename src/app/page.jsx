@@ -2,15 +2,15 @@
 import styles from "./page.module.css";
 import styled from "styled-components";
 import Header from "../app/components/Header"
-
+import Main from "../app/components/Main"
 
 export default function Home() {
   return (
     <StyledContainer>
       <Header/>
-      <main className={styles.main}>
+      <Main>
         
-      </main>
+      </Main>
       <footer className={styles.footer}>
        
       </footer>
