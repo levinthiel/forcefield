@@ -38,6 +38,7 @@ export default function Main() {
 
 const StyledMain = styled.main `
     margin-top: 20px;
+    opacity: 0.7;
 `;
 const Card = styled.section `
     border: 4px solid var(--orange);

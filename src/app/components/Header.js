@@ -93,6 +93,7 @@ const StyledHeader = styled.header `
     flex-wrap: wrap;
     font-family: poppins;
     font-weight: 400;
+    opacity: 0.7;
 `;
 const TopBar = styled.div`
     width: 100%;
