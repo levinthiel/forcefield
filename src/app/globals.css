@@ -1,6 +1,6 @@
 :root {
-  --black: #070707;
-  --orange: #FF2900;
+  --black: #202020;
+  --beige: #ECE8D7;
 }
 
 @media (prefers-color-scheme: dark) {

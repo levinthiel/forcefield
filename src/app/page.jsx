@@ -27,7 +27,7 @@ const StyledContainer = styled.div `
  display: block;
  
 
- @media (max-width: 400px) {
-      padding: 10px;
+ @media (max-width: 530px) {
+      padding: 16px;
     }
 `;
