@@ -1,6 +1,7 @@
-const story = { 
-	title: "Sagasu incident",
-	date: "2025-06-01",
+const stories = [{ 
+	title: "Sagasu incident floms",
+	time: "5 min",
+	tags: "Space Horror / First Person",
 	storyContent:	`
 	**Taike-Mosabe Company Cargo ship**, _Sagasu_  
 80 man crew  
@@ -19,5 +20,5 @@ On opening your door, you realize that in the corridor, all the people are runni
 In a trot, you decide to follow.
 
 	`
-}
-export default story;
+},];
+export default stories;

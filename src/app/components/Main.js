@@ -1,19 +1,57 @@
 import styled from "styled-components"
 import Card from "./Card"
-import story from "../../../public/lib/sa"
-import ReactMarkdown from "react-markdown";
+import stories from "../lib/sa"
 
 export default function Main() {
     return (
         <StyledMain>
-          <Card></Card>  
-          <p><em>by {story.title} – {story.date}</em></p>
-          <ReactMarkdown>{story.storyContent}</ReactMarkdown>
+            {stories.map((story) => (
+                <Card key={story.title}
+                storytitle={story.title}
+                storyReadingTime={story.time}
+                storyTags={story.tags}
+                >
+                </Card>  
+            ))}
+            {stories.map((story) => (
+                <Card key={story.title}
+                storytitle={story.title}
+                storyReadingTime={story.time}
+                storyTags={story.tags}
+                >
+                </Card>  
+            ))}
+            {stories.map((story) => (
+                <Card key={story.title}
+                storytitle={story.title}
+                storyReadingTime={story.time}
+                storyTags={story.tags}
+                >
+                </Card>  
+            ))}
+            {stories.map((story) => (
+                <Card key={story.title}
+                storytitle={story.title}
+                storyReadingTime={story.time}
+                storyTags={story.tags}
+                >
+                </Card>  
+            ))}
+            {stories.map((story) => (
+                <Card key={story.title}
+                storytitle={story.title}
+                storyReadingTime={story.time}
+                storyTags={story.tags}
+                >
+                </Card>  
+            ))}
         </StyledMain>
     )
 }
 
 const StyledMain = styled.main `
     margin-top: 20px;
-    opacity: 0.7;
+        display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
 `;

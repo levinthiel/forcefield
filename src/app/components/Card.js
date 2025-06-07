@@ -1,111 +1,52 @@
 import styled from "styled-components"
-import { FaEye } from "react-icons/fa";
 
-export default function Card() {
+export default function Card({storytitle,storyReadingTime,storyTags}) {
     return (
         <CardWrapper>
-                <CardBody>
-                    <CardTitle>The sagasu incident</CardTitle>
-                    <CardTags>
-                        <p>Space Horror </p> / 
-                        <p> First Person</p>
-                    </CardTags>
-                    <CardReaderCount>
-                        <FaEye /> 
-                        <p>23</p>
-                    </CardReaderCount>
-                </CardBody>
-                <CardFooter>
-                    <div>
-                        <p>reading time: 5 min</p>
-                    </div>
-                    <ReadContainer>
-                        <p>Read</p>
-                        <div>
-                            <StyledSwitch>
-                                <StyledCheckbox  type="checkbox"/>
-                                <StyledSlider></StyledSlider>
-                            </StyledSwitch>
-                        </div>
-                    </ReadContainer>
-                </CardFooter>
+            <CardTitle>{storytitle}</CardTitle>
+            <CardBody>
+                <CardTags>
+                    <p>{storyTags}</p>
+                </CardTags>
+                <CardReadingTime>reading time: {storyReadingTime}</CardReadingTime>
+            </CardBody>
             </CardWrapper>
     )
 }
 
 const CardWrapper = styled.section `
-    border: 4px solid var(--orange);
-    color: var(--orange);
+    border: 2px solid var(--beige);
     border-radius: 7px;
+    color: var(--beige);
+    width: calc((100% - 32px) / 3);
+    @media (max-width: 768px) {
+  flex: 0 1 calc((100% - 16px) / 2); // 2 columns
+}
+@media (max-width: 480px) {
+  flex: 0 1 100%; // 1 column
+}
 `;
 const CardBody = styled.div`
-    padding: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 135px;
 `;
 const CardTitle = styled.h2`
     text-transform: uppercase;
     font-weight: 900;
     font-family: outfit;
     font-size: 30px;
+    background: var(--beige);
+    color: var(--black);
+    padding: 16px;
 `;
 const CardTags = styled.div`
     font-family: poppins;
     display: flex;
     gap: 5px;
 `;
-const CardReaderCount = styled.div`
-    font-family: poppins;
-    display: flex;
-    gap: 5px;
-    align-items: center;
-`;
-const CardFooter = styled.div`
-    background: var(--orange);
-    color: var(--black);
-    padding: 10px;
-    font-family: poppins;
-    font-weight: 400;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`;
-const ReadContainer = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 5px;
-`;
-const StyledSwitch = styled.label`
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-`;
-const StyledCheckbox = styled.input.attrs({ type: "checkbox" })`
-    opacity: 0;
-    width: 0;
-    height: 0;
-
-    &:checked + span:before {
-        transform: translateX(26px);
-    }
-`;
-const StyledSlider = styled.span`
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--black);
-    transition: .4s;
-
-    &:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: var(--orange);
-        transition: .4s;
-    }
+const CardReadingTime = styled.p `
+    text-align: right;
 `;
