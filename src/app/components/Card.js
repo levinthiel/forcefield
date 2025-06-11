@@ -18,7 +18,7 @@ const CardWrapper = styled.section `
     border: 2px solid var(--beige);
     border-radius: 7px;
     color: var(--beige);
-    width: calc((100% - 32px) / 3);
+    width:auto; /* calc((100% - 32px) / 3); */
     @media (max-width: 768px) {
   flex: 0 1 calc((100% - 16px) / 2); // 2 columns
 }

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Outfit } from 'next/font/google';
 import { Poppins } from 'next/font/google';
+import Header from "../app/components/Header"
 
 const outfit = Outfit({
   weight: '900',
@@ -36,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${outfit.className}`}>
+        <Header/>
         {children}
       </body>
     </html>

@@ -1,6 +1,6 @@
-const sagasu = [{ 
-	id: "sagasu",
-	title: "Sagasu incident",
+const test = [{ 
+	id: "test",
+	title: "test",
 	time: "5 min",
 	tags: "Space Horror / First Person",
 	storyContent:	`
@@ -13,4 +13,4 @@ ETA: 48 hours
 
 },];
 
-export default sagasu;
+export default test;
