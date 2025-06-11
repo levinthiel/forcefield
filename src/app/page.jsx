@@ -1,25 +1,23 @@
 "use client"
 import styles from "./page.module.css";
 import styled from "styled-components";
-
+import Main from "../app/components/Main"
+import Footer from "../app/components/Footer"
 
 export default function Home() {
   return (
     <StyledContainer>
-      <main className={styles.main}>
+      
+      <Main>
         
-      </main>
-      <footer className={styles.footer}>
+      </Main>
+      <Footer>
        
-      </footer>
+      </Footer>
     </StyledContainer>
   );
 }
 
 const StyledContainer = styled.div `
- background: red;
- height: 100%;
- width: 100%;
- padding: 40px;
  display: block;
 `;

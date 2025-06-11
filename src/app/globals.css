@@ -1,6 +1,6 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --black: #202020;
+  --beige: #ECE8D7;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,15 +13,11 @@
 html,
 body {
   max-width: 100vw;
+
   overflow-x: hidden;
 }
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 40px;
 }
 
 * {
@@ -38,5 +34,10 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+@media (max-width: 530px) {
+  body {
+    padding: 16px;
   }
 }
