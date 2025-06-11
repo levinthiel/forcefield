@@ -23,8 +23,16 @@ export default function StoryPage({ params }) {
 }
 
 const StyledPage = styled.article`
-  max-width: 700px;
   margin: 2rem auto;
-  padding: 1rem;
+  padding: 3rem;
+  border: 2px solid var(--beige);
+  border-radius: 7px;
+  color: var(--beige);
+  width: 100%;
+
+  @media (max-width: 530px) {
+
+    padding: 1rem;
+  }
 `;
 
