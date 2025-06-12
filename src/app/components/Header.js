@@ -16,7 +16,7 @@ export default function Header() {
             </LogoIcon>
             <LogoText>
                 <Image
-                    src="/logo-font.png"
+                    src="/logo-font.svg"
                     alt="forcefield-font"
                     width={251}  // Set the width
                     height={140} // Set the height
