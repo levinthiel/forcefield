@@ -5,23 +5,25 @@ import Image from 'next/image';
 export default function Header() {
     return(
         <StyledHeader>
-            <LogoIcon>
-           {/*      <Image
-                    src="/logo-icon.svg"
-                    alt="forcefield-icon"
-                    width={181}  // Set the width
-                    height={140} // Set the height
-                    layout="responsive"
-                /> */}
-            </LogoIcon>
-            <LogoText>
-                <Image
-                    src="/logo-font.svg"
-                    alt="forcefield-font"
-                    width={251}  // Set the width
-                    height={140} // Set the height
-                />
-            </LogoText>
+            <LinkHome href="/">
+                <LogoIcon>
+            {/*      <Image
+                        src="/logo-icon.svg"
+                        alt="forcefield-icon"
+                        width={181}  // Set the width
+                        height={140} // Set the height
+                        layout="responsive"
+                    /> */}
+                </LogoIcon>
+                <LogoText>
+                    <Image
+                        src="/logo-font.svg"
+                        alt="forcefield-font"
+                        width={251}  // Set the width
+                        height={140} // Set the height
+                    />
+                </LogoText>
+            </LinkHome>
             <Subline>
                 <p>Chronicles from the Edge<br/>
                     Science fiction short stories
@@ -46,6 +48,9 @@ const StyledHeader = styled.header `
     @media (max-width: 803px) {
         margin-bottom: 140px;
     } 
+`;
+const LinkHome = styled.a `
+    display: contents;
 `;
 const LogoIcon = styled.div`
     width: 180px;

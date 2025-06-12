@@ -18,6 +18,7 @@ body {
 }
 body {
   padding: 40px;
+  background-color: var(--black);
 }
 
 * {
