@@ -16,6 +16,16 @@ export default function Main() {
                     </Card>  
                 </Link>
             ))}
+            {stories.map((story) => (
+                <Link key={story.id} href={`/stories/${story.id}`}>
+                    <Card
+                        storytitle={story.title}
+                        storyReadingTime={story.time}
+                        storyTags={story.tags}
+                    >
+                    </Card>  
+                </Link>
+            ))}
             
         </StyledMain>
     )

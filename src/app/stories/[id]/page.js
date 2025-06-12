@@ -47,6 +47,9 @@ const LinkEmpty = styled.div`
   width: 80%;
   border-radius: 7px;
   border: 2px solid var(--beige);
+  background: url(/lines.svg) center center;
+  background-size: cover;
+
 `;
 const StyledPage = styled.article`
   margin: 2rem auto;

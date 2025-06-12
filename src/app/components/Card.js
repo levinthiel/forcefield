@@ -3,18 +3,23 @@ import styled from "styled-components"
 export default function Card({storytitle,storyReadingTime,storyTags}) {
     return (
         <CardWrapper>
-            <CardTitle>{storytitle}</CardTitle>
-            <CardBody>
-                <CardTags>
-                    <p>{storyTags}</p>
-                </CardTags>
-                <CardReadingTime>reading time: {storyReadingTime}</CardReadingTime>
-            </CardBody>
+            <CardCover></CardCover>
+            <div>
+                <CardTitle>{storytitle}</CardTitle>
+                <CardBody>
+                    <CardTags>
+                        <p>{storyTags}</p>
+                    </CardTags>
+                    <CardReadingTime>reading time: {storyReadingTime}</CardReadingTime>
+                </CardBody>
+            </div>
             </CardWrapper>
     )
 }
 
 const CardWrapper = styled.section `
+    background: var(--beige);
+    display: flex;
     border: 2px solid var(--beige);
     border-radius: 7px;
     color: var(--beige);
@@ -26,7 +31,14 @@ const CardWrapper = styled.section `
   flex: 0 1 100%; // 1 column
 }
 `;
+const CardCover = styled.div `
+    width: 145px;
+    background: url("./sagasu/sagasu-s.png") var(--beige);
+    border-radius: 7px 0 0 7px;
+    border-right: 2px solid var(--beige);
+`;
 const CardBody = styled.div`
+    background: var(--black);
     padding: 16px;
     display: flex;
     flex-direction: column;
