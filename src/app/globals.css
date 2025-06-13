@@ -1,6 +1,7 @@
 :root {
   --black: #202020;
   --beige: #ECE8D7;
+  --red:   #B41B06;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,6 +19,7 @@ body {
 }
 body {
   padding: 40px;
+  background-color: var(--black);
 }
 
 * {

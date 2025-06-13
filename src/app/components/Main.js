@@ -12,6 +12,18 @@ export default function Main() {
                         storytitle={story.title}
                         storyReadingTime={story.time}
                         storyTags={story.tags}
+                        storyCoverPath={story.coverpath}
+                    >
+                    </Card>  
+                </Link>
+            ))}
+            {stories.map((story) => (
+                <Link key={story.id} href={`/stories/${story.id}`}>
+                    <Card
+                        storytitle={story.title}
+                        storyReadingTime={story.time}
+                        storyTags={story.tags}
+                        storyCoverPath={story.coverpath}
                     >
                     </Card>  
                 </Link>
@@ -21,9 +33,9 @@ export default function Main() {
     )
 }
 
-const StyledMain = styled.main `
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+const StyledMain = styled.main`
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
 `;
