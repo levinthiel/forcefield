@@ -12,23 +12,11 @@ export default function Main() {
                         storytitle={story.title}
                         storyReadingTime={story.time}
                         storyTags={story.tags}
-                        storyCoverPath={story.coverpath}
+                        storyCoverPath={story.smallcoverpath}
                     >
                     </Card>  
                 </Link>
-            ))}
-            {stories.map((story) => (
-                <Link key={story.id} href={`/stories/${story.id}`}>
-                    <Card
-                        storytitle={story.title}
-                        storyReadingTime={story.time}
-                        storyTags={story.tags}
-                        storyCoverPath={story.coverpath}
-                    >
-                    </Card>  
-                </Link>
-            ))}
-            
+            ))}            
         </StyledMain>
     )
 }
