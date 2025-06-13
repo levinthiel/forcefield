@@ -3,6 +3,7 @@ import React from "react";
 import stories from "../../lib/allTheStories";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
+import Image from 'next/image'
 
 export default function StoryPage({ params }) {
   const resolvedParams = React.use(params);  // unwrap the promise here
@@ -21,9 +22,17 @@ export default function StoryPage({ params }) {
         <LinkEmpty></LinkEmpty>
       </LinkBox>
       <StyledPage>
+        <StyledImage
+          src={story.bigcoverpath}
+          width={500}
+          height={709}
+          alt="Picture of the cover"
+          layout="responsive"
+        />
+        <hr></hr>
+        <br></br>
         <h1>{story.title}</h1>
-        <h3>by {story.tags}</h3>
-        <small>{story.time}</small>
+        <br></br>
         <ReactMarkdown>{story.storyContent}</ReactMarkdown>
       </StyledPage>
     </>
@@ -63,5 +72,9 @@ const StyledPage = styled.article`
 
     padding: 1rem;
   }
+`;
+const StyledImage = styled(Image)`
+  border-radius: 7px;
+  max-width: 500px;
 `;
 
