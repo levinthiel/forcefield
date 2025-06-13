@@ -1,9 +1,10 @@
 import styled from "styled-components"
 
 export default function Card({storytitle,storyReadingTime,storyTags, storyCoverPath }) {
+    console.log("cover path:", storyCoverPath);
     return (
         <CardWrapper>
-             {storyCoverPath && <CardCover $coverpath={storyCoverPath} />}
+             {storyCoverPath && <CardCover $smallcoverpath={storyCoverPath} />}
             <CardBodyWrapper>
                 <CardTitle>{storytitle}</CardTitle>
                 <CardBody>
@@ -28,7 +29,7 @@ const CardWrapper = styled.section`
 `;
 const CardCover = styled.div `
     width: 145px;
-    background:  ${({ $coverpath }) => $coverpath ? `url(${$coverpath})` : 'none'} var(--beige);
+    background: ${({ $smallcoverpath }) => $smallcoverpath ? `url(${$smallcoverpath})` : 'none'} var(--beige);
     border-radius: 7px 0 0 7px;
     border-right: 2px solid var(--beige);
 `;
