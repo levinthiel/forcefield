@@ -1,6 +1,7 @@
 const sagasu = [{ 
 	id: "sagasu",
 	title: "Sagasu incident",
+	coverpath: "./sagasu/sagasu-s.png",
 	time: "5 min",
 	tags: "Space Horror / First Person",
 	storyContent:	`

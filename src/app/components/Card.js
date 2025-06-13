@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
-export default function Card({storytitle,storyReadingTime,storyTags}) {
+export default function Card({storytitle,storyReadingTime,storyTags, storyCoverPath }) {
     return (
         <CardWrapper>
-            <CardCover></CardCover>
+             {storyCoverPath && <CardCover $coverpath={storyCoverPath} />}
             <CardBodyWrapper>
                 <CardTitle>{storytitle}</CardTitle>
                 <CardBody>
@@ -28,7 +28,7 @@ const CardWrapper = styled.section`
 `;
 const CardCover = styled.div `
     width: 145px;
-    background: url("./sagasu/sagasu-s.png") var(--beige);
+    background:  ${({ $coverpath }) => $coverpath ? `url(${$coverpath})` : 'none'} var(--beige);
     border-radius: 7px 0 0 7px;
     border-right: 2px solid var(--beige);
 `;

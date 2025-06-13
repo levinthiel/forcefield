@@ -1,6 +1,7 @@
 const test = [{ 
 	id: "test",
 	title: "test",
+	coverpath: "",
 	time: "5 min",
 	tags: "Space Horror / First Person",
 	storyContent:	`

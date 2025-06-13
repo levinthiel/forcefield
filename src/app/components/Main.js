@@ -12,6 +12,7 @@ export default function Main() {
                         storytitle={story.title}
                         storyReadingTime={story.time}
                         storyTags={story.tags}
+                        storyCoverPath={story.coverpath}
                     >
                     </Card>  
                 </Link>
@@ -22,6 +23,7 @@ export default function Main() {
                         storytitle={story.title}
                         storyReadingTime={story.time}
                         storyTags={story.tags}
+                        storyCoverPath={story.coverpath}
                     >
                     </Card>  
                 </Link>
