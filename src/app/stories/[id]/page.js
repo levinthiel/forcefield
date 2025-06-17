@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { useEffect, useState } from "react";
 import stories from "../../lib/allTheStories";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
@@ -11,12 +11,36 @@ export default function StoryPage({ params }) {
 
   const story = stories.find((s) => s.id === id);
 
+  // Scroll indicator 
+   const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = Math.round((scrollTop / docHeight) * 100);
+      setScrollProgress(scrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  //
+
+
+
   if (!story) return <p>Story not found.</p>;
 
   return (
     <>
+       <ProgressContainer>
+        <ProgressBar style={{ width: `${scrollProgress}%` }} >
+          <Progress>{scrollProgress}%</Progress>
+        </ProgressBar>
+      </ProgressContainer>
       <LinkBox>
-        <LinkHome href="/">
+        <LinkHome href="/">     
           Back
         </LinkHome>
         <LinkEmpty></LinkEmpty>
@@ -47,6 +71,29 @@ export default function StoryPage({ params }) {
     </>
   );
 }
+const ProgressContainer = styled.div`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 1rem;
+  background: var(--beige);
+  z-index: 100;
+  left: 0;
+`;
+
+const ProgressBar = styled.div`
+  height: 1rem;
+  background:var(--red);
+  width: 0%;
+  transition: width 0.25s ease-out;
+`;
+const Progress = styled.p`
+  font-size: 0.8rem;
+  font-weight: normal;
+  text-align: right;
+  color: var(--beige);
+  padding-right: 10px;
+`;
 const StyledPage = styled.article`
   margin: 2rem auto;
   padding: 3rem;
