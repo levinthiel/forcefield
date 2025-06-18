@@ -29,6 +29,7 @@ const StyledFooter = styled.footer `
     justify-content: space-between;
     padding: 0 20px;
     font-size: 0.7rem;
+    color: var(--beige);
 `;
 const FooterAbout = styled.div`
     min-width: 50%;
