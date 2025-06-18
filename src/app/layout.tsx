@@ -4,6 +4,7 @@ import "./globals.css";
 import { Outfit } from 'next/font/google';
 import { Poppins } from 'next/font/google';
 import Header from "../app/components/Header"
+import Footer from "./components/Footer";
 
 const outfit = Outfit({
   weight: '900',
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${outfit.className}`}>
         <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

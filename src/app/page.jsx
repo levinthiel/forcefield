@@ -2,18 +2,12 @@
 import styles from "./page.module.css";
 import styled from "styled-components";
 import Main from "../app/components/Main"
-import Footer from "../app/components/Footer"
 
 export default function Home() {
   return (
-    <StyledContainer>
-      
+    <StyledContainer>     
       <Main>
-        
       </Main>
-      <Footer>
-       
-      </Footer>
     </StyledContainer>
   );
 }
