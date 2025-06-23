@@ -6,7 +6,7 @@ const passengers = [{
 	time: "16 min",
 	tags: "Space Horror / Family Drama",
 	storyContent:	`
-	"Mom! Wait up!" Said Val, almost shouting, to be overheard over the sound of the closing of the automatic doors of her mother's car. 
+"Mom! Wait up!" Said Val, almost shouting, to be overheard over the sound of the closing of the automatic doors of her mother's car. 
 
 "Mom, she said again, calmer. Just wait a second, what is going on?" She had caught up with her mother by now and grabbed her not so gently by the arm to make her look at her.
 
