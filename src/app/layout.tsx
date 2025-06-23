@@ -27,7 +27,31 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Force Field: Chronicles from the edge",
-  description: "Science fiction short stories",
+  description: "A collection of thrilling science fiction short stories from the far reaches of the universe.",
+  keywords: ["science fiction", "sci-fi stories", "space horror", "short stories", "Force Field Chronicles"],
+  authors: [{ name: "Skeletron" }],
+  
+  icons: {
+    icon: [
+    { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+    ]
+  },
+  openGraph: {
+    title: "Force Field: Chronicles from the Edge",
+    description: "Discover chilling and thrilling science fiction stories.",
+    url: "https://forcefield-gray.vercel.app/",
+    siteName: "Force Field",
+    images: [
+      {
+        url: "/logo-portrait.png", // must be in /public
+        width: 376,
+        height: 491,
+        alt: "Force Field Cover",
+      },
+    ],
+    locale: "en_UK",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

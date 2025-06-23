@@ -7,9 +7,14 @@ export default function Footer() {
         <StyledFooter>
             <FooterAbout>
                 <Link href="/about">
-                    About Force Field
+                    &#8505; &nbsp; About Force Field
                 </Link>
             </FooterAbout>
+            <div>
+                <Link href="https://whatsapp.com/channel/0029Vb6b7z3Gk1FoIvxkTz3v">
+                  &#128488; &nbsp;  Never miss an Update - Join the whatsapp Channel
+                </Link>
+            </div>
             <FooterCopyright>
                 <p>
                     All rights reserved. © Skeletron - 2025
@@ -30,14 +35,17 @@ const StyledFooter = styled.footer `
     padding: 0 20px;
     font-size: 0.7rem;
     color: var(--beige);
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
 `;
 const FooterAbout = styled.div`
-    min-width: 50%;
+    fill: var(--beige);
 `;
 const FooterCopyright = styled.div`
     color: var(--beige);
     min-height: 20px;
     font-family: poppins;
     font-weight: 200;
-    padding: 10px;
+
 `;
