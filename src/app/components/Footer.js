@@ -12,7 +12,12 @@ export default function Footer() {
             </FooterAbout>
             <div>
                 <Link href="https://whatsapp.com/channel/0029Vb6b7z3Gk1FoIvxkTz3v">
-                  &#128488; &nbsp;  Never miss an Update - Join the whatsapp Channel
+                    &#128488; &nbsp;  Never miss an Update - Join the whatsapp Channel
+                </Link>
+            </div>
+            <div>
+                <Link href="https://open.spotify.com/playlist/2bSO3P9jssmmK2rS7iKuaN?si=263539ff2f80417d">
+                    &#9835; &nbsp;  Listen and collaborate on the Force Field playlist
                 </Link>
             </div>
             <FooterCopyright>
@@ -25,14 +30,12 @@ export default function Footer() {
 }
 const StyledFooter = styled.footer `
     width: 100%;
-    border: 4px solid var(--beige);
-    opacity: 0.7;
+    border: 2px solid var(--beige);
     border-radius: 7px;
     margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
     font-size: 0.7rem;
     color: var(--beige);
     padding: 10px;
