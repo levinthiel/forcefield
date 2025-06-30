@@ -2,22 +2,26 @@ import styled from "styled-components"
 import Card from "./Card"
 import stories from "../lib/allTheStories"
 import Link from "next/link"
+import AnnouncerTxt from "./AnnouncerTxt"
 
 export default function Main() {
     return (
-        <StyledMain>
-            {stories.map((story) => (
-                <Link key={story.id} href={`/stories/${story.id}`}>
-                    <Card
-                        storytitle={story.title}
-                        storyReadingTime={story.time}
-                        storyTags={story.tags}
-                        storyCoverPath={story.smallcoverpath}
-                    >
-                    </Card>  
-                </Link>
-            ))}            
-        </StyledMain>
+        <>
+            <AnnouncerTxt/>
+            <StyledMain>
+                {stories.map((story) => (
+                    <Link key={story.id} href={`/stories/${story.id}`}>
+                        <Card
+                            storytitle={story.title}
+                            storyReadingTime={story.time}
+                            storyTags={story.tags}
+                            storyCoverPath={story.smallcoverpath}
+                        >
+                        </Card>  
+                    </Link>
+                ))}            
+            </StyledMain>
+        </>
     )
 }
 
