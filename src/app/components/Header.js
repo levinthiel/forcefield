@@ -25,9 +25,9 @@ export default function Header() {
                 </LogoText>
             </LinkHome>
             <Subline>
-                <p>Chronicles from the Edge<br/>
+                <h1>Chronicles from the Edge<br/>
                     Science fiction short stories
-                </p>
+                </h1>
             </Subline>
             <LinesFiller>
             </LinesFiller>
@@ -91,20 +91,22 @@ const Subline = styled.div`
     justify-content: center;
     align-items: center;
     padding: 0 16px;
-    font-size: 24px;
+    font-size: 15px;
     line-height: 26px;
     height: -webkit-fill-available;
     width: 33%;
     @media (max-width: 900px) {
         width: 28%;
-        font-size: 18px;
+        font-size: 10px;
+        line-height: 1;
+        padding: 5px 0;
     }
     @media (max-width: 803px) {
         width: 100%;
         height: auto;
     } 
     @media (max-width: 400px) {
-        font-size: 16px;
+        font-size: 10px;
     } 
 `;
 const LinesFiller = styled.div`
