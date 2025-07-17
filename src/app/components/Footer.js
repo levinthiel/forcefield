@@ -61,6 +61,10 @@ const FooterAbout = styled.div`
     fill: var(--beige);
     max-width: 50%;
 
+    @media (max-width: 900px) {
+    max-width: 100%;
+    }
+
     h3 {
         font-size: 20px;
         margin-bottom: 10px;
