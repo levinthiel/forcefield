@@ -27,7 +27,13 @@ export default function Main() {
 
 const StyledMain = styled.main`
     margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+
+  & > * {
+        flex: 1 1 calc((100% - 80px) / 3); // 3 items per row with 16px gap
+        max-width: calc((100% - 80px) / 3);
+        min-width: 328px;
+    }
 `;
