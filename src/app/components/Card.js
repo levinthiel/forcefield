@@ -4,7 +4,7 @@ export default function Card({storytitle,storyReadingTime,storyTags, storyCoverP
     console.log("cover path:", storyCoverPath);
     return (
         <CardWrapper>
-             {storyCoverPath && <CardCover $smallcoverpath={storyCoverPath} />}
+            {storyCoverPath && <CardCover $smallcoverpath={storyCoverPath} />}
             <CardBodyWrapper>
                 <CardTitle>{storytitle}</CardTitle>
                 <CardBody>
@@ -28,14 +28,14 @@ const CardWrapper = styled.section`
     height: 100%;
 `;
 const CardCover = styled.div `
-    width: 145px;
-    background: ${({ $smallcoverpath }) => $smallcoverpath ? `url(${$smallcoverpath})` : 'none'} var(--beige);
+    width: 40%;
+    background: ${({ $smallcoverpath }) => $smallcoverpath ? `url(${$smallcoverpath})` : 'none'} var(--beige) center center;
     border-radius: 7px 0 0 7px;
     border-right: 2px solid var(--beige);
     background-size: cover;
 `;
 const CardBodyWrapper = styled.div`
-    width: 100%;
+    width: 60%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -52,7 +52,7 @@ const CardTitle = styled.h2`
     text-transform: uppercase;
     font-weight: 900;
     font-family: outfit;
-    font-size: 30px;
+    font-size: clamp(16px, 1.6vw, 30px);
     background: var(--beige);
     color: var(--black);
     padding: 16px;
@@ -63,5 +63,5 @@ const CardTags = styled.div`
     gap: 5px;
 `;
 const CardReadingTime = styled.p `
-    text-align: right;
+    text-align: left;
 `;
