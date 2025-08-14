@@ -6,7 +6,6 @@ const survivor1 = [{
 	time: "13 min",
 	tags: "Zombie Apocalypse / Diary",
 	storyContent:	`
-
 I’m an idiot. A lucky idiot, sure, but an idiot nonetheless. I should have died a dozen times by now - eaten, starved or maybe just by stupidity. But here I am still breathing.
 
 I'm the kind of guy who excels at sports and sucks at school—if you catch my drift. If life was a high school movie, I’d be cast as the dumb jock or the generic bully. Not that I’ve ever bullied anyone, mind you. But if you saw me on the street, you’d probably assume I take lunch money for a living or that I spent my formative years stuffing nerds into lockers.
