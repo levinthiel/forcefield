@@ -15,7 +15,7 @@ export default function Main() {
                             storytitle={story.title}
                             storyReadingTime={story.time}
                             storyTags={story.tags}
-                            storyCoverPath={story.smallcoverpath}
+                            storyCoverPath={story.bigcoverpath}
                         >
                         </Card>  
                     </Link>
@@ -30,10 +30,17 @@ const StyledMain = styled.main`
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
+    justify-content: center;
 
-  & > * {
-        flex: 1 1 calc((100% - 80px) / 3); // 3 items per row with 16px gap
-        max-width: calc((100% - 80px) / 3);
-        min-width: 328px;
+    & > * {
+    flex-basis: calc(25% - 40px);
+
+    @media (max-width: 1000px) {
+        flex-basis: calc(50% - 40px);
     }
+
+    @media (max-width: 600px) {
+        flex-basis: 100%;
+    }
+}
 `;

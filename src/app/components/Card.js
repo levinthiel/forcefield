@@ -4,7 +4,7 @@ export default function Card({storytitle,storyReadingTime,storyTags, storyCoverP
     console.log("cover path:", storyCoverPath);
     return (
         <CardWrapper>
-            {storyCoverPath && <CardCover $smallcoverpath={storyCoverPath} />}
+            {storyCoverPath && <CardCover $bigcoverpath={storyCoverPath} />}
             <CardBodyWrapper>
                 <CardTitle>{storytitle}</CardTitle>
                 <CardBody>
@@ -19,24 +19,26 @@ export default function Card({storytitle,storyReadingTime,storyTags, storyCoverP
 }
 
 const CardWrapper = styled.section`
-    background: var(--beige);
     display: flex;
-    border: 2px solid var(--beige);
-    border-radius: 7px;
+    flex-direction: column;
     color: var(--beige);
-    width: 100%; /* Full width of grid cell */
-    height: 100%;
+    width: 100%;
+    cursor: pointer;
 `;
-const CardCover = styled.div `
-    width: 40%;
-    background: ${({ $smallcoverpath }) => $smallcoverpath ? `url(${$smallcoverpath})` : 'none'} var(--beige) center center;
-    border-radius: 7px 0 0 7px;
-    border-right: 2px solid var(--beige);
-    background-size: cover;
+
+const CardCover = styled.div`
+    width: 100%;
+    aspect-ratio: 2 / 3;  /* Portrait format */
+    border: 2px solid var(--beige);
+    background: ${({ $bigcoverpath }) => $bigcoverpath ? `url(${$bigcoverpath})` : 'none'}
+    center center / cover;
+    border-radius: 7px;
 `;
 const CardBodyWrapper = styled.div`
-    width: 60%;
-    height: 100%;
+    width: 100%;
+    border: 2px solid var(--beige);
+    border-radius: 7px;
+    margin-top: 5px;
     display: flex;
     flex-direction: column;
 `;
@@ -45,16 +47,14 @@ const CardBody = styled.div`
     padding: 16px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: -webkit-fill-available;
-`;
+    flex-grow: 1;
+    `;
 const CardTitle = styled.h2`
     text-transform: uppercase;
     font-weight: 900;
     font-family: outfit;
-    font-size: clamp(16px, 1.6vw, 30px);
-    background: var(--beige);
-    color: var(--black);
+    font-size: clamp(23px, 1.6vw, 30px);
+    color:  var(--beige);
     padding: 16px;
 `;
 const CardTags = styled.div`
@@ -64,4 +64,6 @@ const CardTags = styled.div`
 `;
 const CardReadingTime = styled.p `
     text-align: left;
+    font-size: small;
+    font-style: italic;
 `;
