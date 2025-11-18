@@ -20,6 +20,7 @@ body {
 body {
   padding: 40px;
   background-color: var(--black);
+  background-image: url('/bg.png');
 }
 
 * {
