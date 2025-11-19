@@ -1,6 +1,6 @@
 const survivor2 = [{ 
 	id: "survivor2",
-	title: "Undead Detours  and Dead Ends: A Survivor's Sequel",
+	title: "Undead Detours and Dead Ends",
 	smallcoverpath: "./survivor2/survivor2-s.png",
 	bigcoverpath: "/survivor2/survivor2-l.png",
 	time: "14 min",

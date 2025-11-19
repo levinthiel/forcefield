@@ -100,6 +100,10 @@ const TopButton = styled.a`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  svg {
+    fill: var(--beige);
+  }
 `;
 const LightButton = styled.div`
   display: flex;
@@ -203,6 +207,9 @@ const StyledImage = styled(Image)`
 `;
 const StyledH1 = styled.h1 `
   font-size: 3rem;
+  font-family: "Mentra";
+  font-weight: normal;
+  letter-spacing: 2px;
   text-align: center;
 `;
 const StyledMarkdown = styled.div`

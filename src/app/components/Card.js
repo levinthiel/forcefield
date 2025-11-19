@@ -81,11 +81,13 @@ const CardBody = styled.div`
     `;
 const CardTitle = styled.h2`
     text-transform: uppercase;
-    font-weight: 900;
-    font-family: outfit;
-    font-size: clamp(23px, 1.6vw, 30px);
-    color:  var(--beige);
+    font-weight: normal;
+    font-family: "Mentra";
+    font-size: 40px;
+    color: var(--beige);
     padding: 16px;
+    letter-spacing: 2px;
+    line-height: 1.2;
 `;
 const CardTags = styled.div`
     font-family: poppins;
