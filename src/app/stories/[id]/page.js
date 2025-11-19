@@ -4,15 +4,25 @@ import stories from "../../lib/allTheStories";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import Image from 'next/image'
+import { MdLightMode } from "react-icons/md";
+import { MdNightlight } from "react-icons/md";
+import { FaArrowUp } from "react-icons/fa6";
 
 export default function StoryPage({ params }) {
-  const resolvedParams = React.use(params);  // unwrap the promise here
+  // story
+  const resolvedParams = React.use(params);
   const { id } = resolvedParams;
-
   const story = stories.find((s) => s.id === id);
 
-  // Scroll indicator 
-   const [scrollProgress, setScrollProgress] = useState(0);
+  //light mode
+  const [lightMode, setLightMode] = useState(false);
+
+  const toggleLightMode = () => {
+    setLightMode((prev) => !prev);
+  };
+
+  // scroll progress bar
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,26 +36,32 @@ export default function StoryPage({ params }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //
-
-
-
   if (!story) return <p>Story not found.</p>;
 
   return (
     <>
-       <ProgressContainer>
+      <TopButton href="#top">
+        <FaArrowUp />
+      </TopButton>
+
+      <LightButton onClick={toggleLightMode}>
+        {lightMode ? <MdNightlight /> : <MdLightMode />}
+      </LightButton>
+
+      <ProgressContainer>
         <ProgressBar style={{ width: `${scrollProgress}%` }} >
           <Progress>{scrollProgress}%</Progress>
         </ProgressBar>
       </ProgressContainer>
+
       <LinkBox>
         <LinkHome href="/">     
           Back
         </LinkHome>
         <LinkEmpty></LinkEmpty>
       </LinkBox>
-      <StyledPage>
+
+      <StyledPage className={lightMode ? "light" : ""} id="top">
         <StyledImage
           src={story.bigcoverpath}
           width={500}
@@ -71,6 +87,49 @@ export default function StoryPage({ params }) {
     </>
   );
 }
+const TopButton = styled.a`
+  display: flex;
+  position: fixed;
+  bottom: 30px;
+  right: 70px;
+  width: 44px;
+  height: 44px;
+  background: var(--black);
+  border-radius: 50%;
+  border:2px solid var(--beige);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
+const LightButton = styled.div`
+  display: flex;
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: var(--black);
+  border-radius: 50%;
+  border:2px solid var(--beige);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all .3s ease;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    transform: rotate(180deg);
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+`;
 const ProgressContainer = styled.div`
   position: fixed;
   bottom: 0;
@@ -80,7 +139,6 @@ const ProgressContainer = styled.div`
   z-index: 100;
   left: 0;
 `;
-
 const ProgressBar = styled.div`
   height: 1rem;
   background:var(--red);
@@ -102,6 +160,12 @@ const StyledPage = styled.article`
   color: var(--beige);
   width: 100%;
   max-width: 800px;
+
+  &.light {
+    background: var(--beige);
+    color: var(--black);
+    border-color: var(--black);
+  }
 
   @media (max-width: 530px) {
 
