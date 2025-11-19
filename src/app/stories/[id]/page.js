@@ -119,6 +119,7 @@ const LightButton = styled.div`
   svg {
     width: 20px;
     height: 20px;
+    fill: var(--beige);
   }
 
   &:hover {
