@@ -1,7 +1,18 @@
 "use client";
+
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Image from "next/image";
-import { retroBorder, terminalChrome } from "../lib/terminalStyles";
+import { retroBorder, terminalChrome, bracketButton } from "../lib/terminalStyles";
+
+const LANGUAGES = ["EN", "DE", "FR"];
+
+function langFromBrowser() {
+    if (typeof navigator === "undefined") return "EN";
+    const code = (navigator.language || "en").toLowerCase();
+    if (code.startsWith("de")) return "DE";
+    if (code.startsWith("fr")) return "FR";
+    return "EN";
+}
 
 const HeaderShell = styled.div`
     position: sticky;
@@ -11,7 +22,7 @@ const HeaderShell = styled.div`
     background: rgba(32, 32, 32, 0.92);
     backdrop-filter: blur(6px);
     ${retroBorder}
-    border-radius: 4px;
+    border-radius: 0;
     margin-left: -2px;
     margin-right: -2px;
 
@@ -23,13 +34,19 @@ const HeaderShell = styled.div`
 const StyledHeader = styled.header`
     width: 100%;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    height: 140px;
-    gap: 16px;
-    padding: 8px;
+    gap: 8px 12px;
+    min-height: 48px;
+    padding: 6px 10px;
 
-    @media (max-width: 803px) {
-        margin-bottom: 0;
+    @media (max-width: 900px) {
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (max-width: 530px) {
+        padding: 6px 8px;
     }
 `;
 
@@ -45,124 +62,176 @@ const HeaderScanline = styled.div`
 `;
 
 const LinkHome = styled.a`
-    display: contents;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    text-decoration: none;
+
+    @media (max-width: 900px) {
+        width: 100%;
+        justify-content: center;
+    }
 `;
 
 const LogoIcon = styled.div`
-    width: 180px;
-    height: -webkit-fill-available;
-    border-radius: 2px;
-    border: 1px solid var(--ff-border);
-    max-width: 181px;
-    background: url(/logo-icon.svg) center center;
-    box-shadow: inset 0 0 16px rgba(180, 27, 6, 0.12);
-
-    @media (max-width: 606px) {
-        width: 100px;
-    }
-    @media (max-width: 530px) {
-        width: 28%;
-    }
-    @media (max-width: 400px) {
-        width: 20%;
-    }
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    background: url(/logo-icon.svg) center center / contain no-repeat;
 `;
 
-const LogoText = styled.div`
-    background-color: var(--beige);
-    height: -webkit-fill-available;
-    border-radius: 2px;
-    border: 1px solid var(--beige);
-    box-shadow: 0 0 12px rgba(236, 232, 215, 0.2);
-
-    @media (max-width: 803px) {
-        flex-grow: 1;
-        justify-content: center;
-        display: flex;
-    }
-    @media (max-width: 530px) {
-        width: 40%;
-    }
-`;
-
-const Subline = styled.div`
-    border: 1px solid var(--ff-border);
+const LogoWordmark = styled.span`
+    font-family: "Mentra", sans-serif;
+    font-weight: normal;
+    font-size: 30px;
+    margin-top: 5px;
+    display: inline-block;
     color: var(--beige);
-    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+`;
+
+const StatusBar = styled.div`
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 8px 16px;
-    font-size: 15px;
-    line-height: 26px;
-    height: -webkit-fill-available;
-    width: 33%;
-    box-shadow: inset 0 0 24px rgba(180, 27, 6, 0.06);
-
-    @media (max-width: 900px) {
-        width: 28%;
-        font-size: 10px;
-        line-height: 1.3;
-        padding: 5px 10px;
-    }
-    @media (max-width: 803px) {
-        width: 100%;
-        height: auto;
-    }
-    @media (max-width: 400px) {
-        font-size: 10px;
-    }
-`;
-
-const StatusLine = styled.span`
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    flex: 1;
+    min-width: 0;
+    margin-left: 3.5rem;
     ${terminalChrome}
-    opacity: 0.65;
-    margin-bottom: 4px;
-    color: var(--red);
-`;
-
-const StatusMeta = styled.span`
-    ${terminalChrome}
-    opacity: 0.85;
-    font-size: 0.85em;
-`;
-
-const LinesFiller = styled.div`
-    border: 1px solid var(--ff-border);
-    height: -webkit-fill-available;
-    border-radius: 2px;
-    flex-grow: 2;
-    background: url(/lines.svg) center center;
-    background-size: cover;
+    font-size: 0.6rem;
     opacity: 0.9;
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.4);
 
     @media (max-width: 900px) {
         display: none;
     }
 `;
 
+const StatusItem = styled.span`
+    white-space: nowrap;
+
+    &[data-variant="accent"] {
+        color: var(--red);
+    }
+`;
+
+const StatusSep = styled.span`
+    color: rgba(236, 232, 215, 0.25);
+    user-select: none;
+`;
+
+const LangGroup = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    margin-left: auto;
+
+    @media (max-width: 900px) {
+        flex-basis: 100%;
+        width: 100%;
+        margin-left: 0;
+        justify-content: center;
+    }
+`;
+
+const LangGlobeIcon = styled.span`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--beige);
+    opacity: 0.85;
+    margin-right: 2px;
+
+    svg {
+        width: 15px;
+        height: 15px;
+    }
+`;
+
+const LangButton = styled.button`
+    ${bracketButton}
+    padding: 3px 8px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    min-width: 2.5rem;
+
+    & > span {
+        font-weight: 700;
+    }
+
+    &[data-active="true"] {
+        border-color: var(--red);
+        box-shadow: 0 0 6px rgba(180, 27, 6, 0.35);
+
+        & > span {
+            color: var(--red);
+        }
+    }
+
+    &[data-active="false"] {
+        opacity: 0.65;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+`;
+
 export default function Header() {
+    const [activeLang, setActiveLang] = useState("EN");
+
+    useEffect(() => {
+        setActiveLang(langFromBrowser());
+    }, []);
+
     return (
         <HeaderShell>
             <StyledHeader>
                 <LinkHome href="/">
-                    <LogoIcon />
-                    <LogoText>
-                        <Image
-                            src="/logo-font.svg"
-                            alt="forcefield-font"
-                            width={215}
-                            height={120}
-                        />
-                    </LogoText>
+                    <LogoIcon aria-hidden="true" />
+                    <LogoWordmark>Force Field</LogoWordmark>
                 </LinkHome>
-                <Subline>
-                    <StatusLine>SYS_ONLINE //</StatusLine>
-                    <StatusMeta>STORY_INDEX // READY</StatusMeta>
-                </Subline>
-                <LinesFiller />
+
+                <StatusBar aria-label="System status">
+                    <StatusItem data-variant="accent">SYS_ONLINE</StatusItem>
+                    <StatusSep>|</StatusSep>
+                    <StatusItem>STORY_INDEX: READY</StatusItem>
+                    <StatusSep>|</StatusSep>
+                    <StatusItem>SESSION: GUEST</StatusItem>
+                    <StatusSep>|</StatusSep>
+                    <StatusItem>LOC: FF-01</StatusItem>
+                </StatusBar>
+
+                <LangGroup role="group" aria-label="Language">
+                    <LangGlobeIcon aria-hidden="true">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M2 12h20" />
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                    </LangGlobeIcon>
+                    {LANGUAGES.map((code) => (
+                        <LangButton
+                            key={code}
+                            type="button"
+                            data-active={activeLang === code}
+                            aria-pressed={activeLang === code}
+                            onClick={() => setActiveLang(code)}
+                        >
+                            <span>{code}</span>
+                        </LangButton>
+                    ))}
+                </LangGroup>
             </StyledHeader>
             <HeaderScanline aria-hidden="true" />
         </HeaderShell>

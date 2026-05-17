@@ -30,7 +30,6 @@ export default function Card({ storytitle, storyReadingTime, storyTags, storyCov
                     </CoverTitleBar>
                     <CardCover>
                         <CoverImage src={storyCoverPath} alt="" />
-                        <ImageOverlayDots />
                         <ImageOverlayGradient />
                     </CardCover>
                 </CoverFrame>
@@ -107,15 +106,11 @@ const CardCover = styled.div`
     width: 100%;
     aspect-ratio: 2 / 3;
     overflow: hidden;
-`;
 
-const ImageOverlayDots = styled.div`
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0) var(--ff-dot-gradient);
-    background-size: var(--ff-dot-size) var(--ff-dot-size);
-    pointer-events: none;
-    z-index: 1;
+    @media (max-width: 640px) {
+        aspect-ratio: 3 / 2;
+        max-height: 200px;
+    }
 `;
 
 const ImageOverlayGradient = styled.div`
@@ -156,6 +151,13 @@ const CardTitle = styled.h2`
     letter-spacing: 1px;
     line-height: 1.1;
     min-height: 2.4em;
+
+    @media (max-width: 640px) {
+        font-size: 1rem;
+        padding: 6px 10px 4px;
+        min-height: auto;
+        -webkit-line-clamp: 2;
+    }
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

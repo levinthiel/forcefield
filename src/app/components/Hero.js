@@ -292,6 +292,10 @@ const HeroSection = styled.section`
     position: relative;
     z-index: 1;
     margin-bottom: 1.5rem;
+
+    @media (max-width: 640px) {
+        margin-bottom: 1rem;
+    }
 `;
 
 const HeroGrid = styled.div`
@@ -313,6 +317,10 @@ const HeroMain = styled.div`
 const HeroSidebar = styled.div`
     min-width: 0;
     display: flex;
+
+    @media (max-width: 899px) {
+        display: none;
+    }
 `;
 
 const HeroCard = styled.div`
@@ -329,8 +337,18 @@ const HeroCard = styled.div`
     gap: 1.5rem;
     background: rgba(42, 42, 42, 0.55);
 
+    @media (max-width: 899px) {
+        min-height: auto;
+        gap: 0.75rem;
+        padding: 1rem 1rem 1.1rem;
+    }
+
     @media (min-width: 640px) {
         padding: 2rem;
+    }
+
+    @media (min-width: 640px) and (max-width: 899px) {
+        padding: 1.25rem;
     }
 `;
 
@@ -545,6 +563,11 @@ const PromptLine = styled.p`
     opacity: 0.7;
     margin-bottom: 1rem;
     font-size: clamp(0.6rem, 2vw, 0.875rem);
+
+    @media (max-width: 640px) {
+        margin-bottom: 0.5rem;
+        font-size: 0.6rem;
+    }
 `;
 
 const HeroTitle = styled.h1`
@@ -563,10 +586,19 @@ const TitleLine = styled.span`
     font-family: var(--font-geist-sans), var(--font-geist-mono), ui-sans-serif, system-ui, sans-serif;
     letter-spacing: ${({ $highlight }) => ($highlight ? "0.04em" : "-0.02em")};
 
+    @media (max-width: 640px) {
+        margin-bottom: 0.35rem;
+        font-size: clamp(1.35rem, 7vw, 1.85rem);
+    }
+
     ${({ $highlight }) =>
         $highlight &&
         css`
             font-size: clamp(0.875rem, 3vw, 2.25rem);
+
+            @media (max-width: 640px) {
+                font-size: clamp(0.7rem, 3.2vw, 0.95rem);
+            }
         `}
 `;
 
@@ -591,4 +623,9 @@ const AboutLink = styled(Link)`
     justify-content: center;
     padding: 0.75rem 1.5rem;
     text-decoration: none;
+
+    @media (max-width: 640px) {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.7rem;
+    }
 `;

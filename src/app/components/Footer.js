@@ -50,15 +50,15 @@ const StyledFooter = styled.footer`
     width: 100%;
     ${retroBorder}
     border-radius: 2px;
-    margin-top: 20px;
+    margin-top: 12px;
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     justify-content: space-between;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--beige);
-    padding: 40px;
+    padding: 18px 22px;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 16px 24px;
     background: rgba(42, 42, 42, 0.55);
 `;
 const FooterAbout = styled.div`
@@ -66,29 +66,32 @@ const FooterAbout = styled.div`
     max-width: 50%;
 
     @media (max-width: 900px) {
-    max-width: 100%;
+        max-width: 100%;
     }
 
     p {
         font-weight: normal;
-        line-height: 1.5;
+        line-height: 1.35;
+        margin: 0;
     }
 `;
 const FooterHeading = styled.h3`
-    margin-bottom: 10px;
+    margin: 0 0 6px;
     ${textGlow}
     ${terminalChrome}
-    font-size: 1rem;
-    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
 `;
 const MoreButton = styled.button`
     ${bracketButton}
-    margin-top: 7px;
+    margin-top: 8px;
+    padding: 4px 10px;
+    font-size: 0.7rem;
 `;
 const FooterLinks = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 
     a {
         display: flex;
@@ -99,10 +102,17 @@ const SystemLink = styled(Link)`
     display: flex;
     align-items: center;
     gap: 4px;
-    padding: 4px 0;
+    padding: 2px 0;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s, color 0.2s;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    line-height: 1.25;
+
+    svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+    }
 
     &:hover {
         border-bottom-color: var(--red);
@@ -112,9 +122,13 @@ const SystemLink = styled(Link)`
 `;
 const FooterCopyright = styled.div`
     color: var(--beige);
-    min-height: 20px;
     font-family: var(--font-geist-mono), ui-monospace, monospace;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     opacity: 0.6;
     letter-spacing: 0.05em;
+    margin-top: 2px;
+
+    p {
+        margin: 0;
+    }
 `;
