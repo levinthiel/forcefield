@@ -1,0 +1,83 @@
+const en = {
+    header: {
+        langGroupAria: "Language",
+        statusAria: "System status",
+        sysOnline: "SYS_ONLINE",
+        storyIndexReady: "STORY_INDEX: READY",
+        sessionGuest: "SESSION: GUEST",
+        loc: "LOC: FF-01",
+    },
+    hero: {
+        prompt: "C:\\FORCE_FIELD\\CHRONICLES\\ROOT> LOAD_STORIES.EXE",
+        titleLine1: "> Chronicles from the Edge",
+        titleLine2: "Science fiction short stories",
+        about: "[ ABOUT ]",
+        diagTitle: "SYSTEM_DIAGNOSTICS",
+        live: "LIVE",
+        metrics: [
+            { label: "STORY_INDEX_LOAD", value: 98, delay: 0 },
+            { label: "READER_SYNC", value: 72, delay: 400 },
+            { label: "ARCHIVE_INTEGRITY", value: 100, delay: 800 },
+        ],
+        consoleLines: [
+            "> LOADING STORY_INDEX...",
+            "> TALES VERIFIED: ONLINE",
+            "> CHRONICLES_SIGNAL: STABLE",
+            "> ARCHIVE_SYNC: OK",
+            "> READER_UPLINK: READY",
+            "> NARRATIVE_BUFFER: CLEAR",
+        ],
+    },
+    card: {
+        archiveExe: "STORY_ARCHIVE.EXE",
+        read: "[ READ ]",
+        readingTimePrefix: "reading time:",
+    },
+    announcer: {
+        label: "[ TRANSMISSION ]",
+        marquee:
+            "Good news my fellow carbon-based entities: This playlist was forged in the vacuum of space and blessed by a malfunctioning coffee machine. Perfect for reading Force Field Stories. Click on this banner, brave one. Add whatever helps you drift between dimensions, because it is collaborative. Plug in and Zone out. The ship's AI is listening.",
+    },
+    footer: {
+        heading: "About Force Field",
+        p1: "Welcome to Force Field — a collection of short stories born from a lifelong love of science fiction in all its chaotic, beautiful, and bizarre forms.",
+        p2: "Force Field is the result of all that—my small tribute to the genre that shaped my brain, inspired my art, and still keeps me up at night wondering what's out there.",
+        p3: "Nothing fancy. No grand statements. Just weird ideas, told for the fun of it.",
+        more: "[ MORE ]",
+        whatsapp: "Never miss an Update - Join the whatsapp Channel",
+        spotify: "Listen and collaborate on the Force Field playlist",
+        copyright: "All rights reserved. © Skeletron - 2025",
+    },
+    feedback: {
+        contact: "[ CONTACT / FEEDBACK ]",
+    },
+    storyPage: {
+        notFound: "Story not found.",
+        loadingNarrative: "LOADING_NARRATIVE",
+        storyReaderExe: "STORY_READER.EXE",
+        rootAccess: "ROOT_ACCESS",
+        coverAlt: "Picture of the cover",
+        backHomeAria: "Back to home",
+        backTopAria: "Back to top",
+        toggleLightAria: "Toggle reading mode",
+    },
+    about: {
+        docLabel: "DOCUMENT_TERMINAL //",
+        title: "About Force Field",
+        p1: "Welcome to Force Field — a collection of short stories born from a lifelong love of science fiction in all its chaotic, beautiful, and bizarre forms.",
+        p2: "These tales leap across genres: from space opera to space horror, from zombie outbreaks to deep-space exploration, with new worlds, strange creatures, and unexpected turns at every stop. Each story stands alone—new characters, new stakes—but all orbit a shared love for what sci-fi does best: sparking imagination, asking what if?, and sometimes just blowing stuff up in zero gravity.",
+        p3: "As a kid, I was raised on a steady diet of Batman: The Animated Series, Ghostbusters, TMNT, and X-Men. That turned into a full-blown obsession—Alien, Predator, Babylon 5, Stargate, Firefly, Mass Effect. I devoured books, comics, audiobooks, games, and even the occasional cosplay. My playlists are full of synthwave, and my shelves are stacked with Moebius, Mignola, Guillaume Singelin, One Piece and Mutafukaz. If it's weird and sci-fi, I probably love it.",
+        p4: "Force Field is the result of all that—my small tribute to the genre that shaped my brain, inspired my art, and still keeps me up at night wondering what's out there.",
+        p5: "And maybe, just maybe, it's also a little reaction to the feeling that so much of what we get these days—movies, games, comics—feels safe, polished, familiar. Reboots, sequels, endless spin-offs. I wanted to try something that feels a little stranger. A little riskier. More like the odd, rough-edged, exciting sci-fi that hooked me in the first place.",
+        p6: "Nothing fancy. No grand statements. Just weird ideas, told for the fun of it.",
+        p7: "The author? He is a human-shaped lifeform who lives on Terra, but whose heart is somewhere between a derelict spaceship and a neon-lit alley. Shaped by laser sounds, cats, and dreams of space pizza. Rumoured to be part cyborg. Writing sci-fi to avoid being rebooted.",
+        thanksTitle: "Thanks",
+        thanksP1: "This collection wouldn't exist without the support, encouragement, and occasional well-timed distractions provided by the people I'm lucky to have in my orbit.",
+        thanksP2: "To my wife — your love, patience, and quiet belief in me are the real force field holding this whole operation together. You're the gravity that keeps me grounded when my head drifts into space.",
+        thanksP3: "To my mum — thank you for always cheering me on, even when I started talking about zombies in space.",
+        thanksP4: "Big thanks to my brother, Stephan, Josh, Sina, Conor, and all my other friends and chosen family — thanks for putting up with my endless sci-fi rants and weirdness in general. Thank you for being the ones to read my stories and give me feedback. You've all helped shape this in some way, and I'm grateful for every bit of it.",
+        thanksP5: "This one's for you, my peeps ❤",
+    },
+};
+
+export default en;

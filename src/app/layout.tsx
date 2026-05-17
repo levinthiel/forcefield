@@ -3,8 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Outfit } from 'next/font/google';
 import { Poppins } from 'next/font/google';
-import Header from "../app/components/Header"
-import Footer from "./components/Footer";
+import LocaleShell from "./components/LocaleShell";
 
 const outfit = Outfit({
   weight: '900',
@@ -63,9 +62,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${outfit.className}`}>
         <div className="crt-overlay" aria-hidden="true" />
-        <Header/>
-        {children}
-        <Footer/>
+        <LocaleShell>{children}</LocaleShell>
       </body>
     </html>
   );

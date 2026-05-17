@@ -10,21 +10,7 @@ import {
     terminalChrome,
     textGlow,
 } from "../lib/terminalStyles";
-
-const DIAG_METRICS = [
-    { label: "STORY_INDEX_LOAD", value: 98, delay: 0 },
-    { label: "READER_SYNC", value: 72, delay: 400 },
-    { label: "ARCHIVE_INTEGRITY", value: 100, delay: 800 },
-];
-
-const CONSOLE_LINES = [
-    "> LOADING STORY_INDEX...",
-    "> TALES VERIFIED: ONLINE",
-    "> CHRONICLES_SIGNAL: STABLE",
-    "> ARCHIVE_SYNC: OK",
-    "> READER_UPLINK: READY",
-    "> NARRATIVE_BUFFER: CLEAR",
-];
+import { useLocale } from "../lib/LocaleContext";
 
 const BAR_SEGMENTS = 34;
 const TYPE_SPEED_MS = 32;
@@ -124,24 +110,30 @@ function AnimatedBar({ label, targetValue, startDelay, reducedMotion }) {
     );
 }
 
-function TypewriterConsole({ reducedMotion }) {
+function TypewriterConsole({ reducedMotion, lines }) {
     const [completedLines, setCompletedLines] = useState(
-        reducedMotion ? CONSOLE_LINES.slice(0, 4) : []
+        reducedMotion ? lines.slice(0, 4) : []
     );
     const [currentText, setCurrentText] = useState("");
     const [lineIndex, setLineIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
 
     useEffect(() => {
+        if (reducedMotion) {
+            setCompletedLines(lines.slice(0, 4));
+        }
+    }, [lines, reducedMotion]);
+
+    useEffect(() => {
         if (reducedMotion) return;
 
-        const fullLine = CONSOLE_LINES[lineIndex];
+        const fullLine = lines[lineIndex];
 
         if (isPaused) {
             const pauseTimer = window.setTimeout(() => {
                 setCompletedLines((prev) => [...prev.slice(-3), fullLine]);
                 setCurrentText("");
-                setLineIndex((i) => (i + 1) % CONSOLE_LINES.length);
+                setLineIndex((i) => (i + 1) % lines.length);
                 setIsPaused(false);
             }, LINE_PAUSE_MS);
             return () => clearTimeout(pauseTimer);
@@ -155,7 +147,7 @@ function TypewriterConsole({ reducedMotion }) {
         }
 
         setIsPaused(true);
-    }, [currentText, lineIndex, isPaused, reducedMotion]);
+    }, [currentText, lineIndex, isPaused, reducedMotion, lines]);
 
     if (reducedMotion) {
         return (
@@ -184,6 +176,8 @@ function TypewriterConsole({ reducedMotion }) {
 
 export default function Hero() {
     const reducedMotion = usePrefersReducedMotion();
+    const { t } = useLocale();
+    const hero = t.hero;
 
     return (
         <HeroSection>
@@ -192,20 +186,18 @@ export default function Hero() {
                     <HeroCard>
                         <HeroBgGrid aria-hidden="true" />
                         <HeroContent>
-                            <PromptLine>
-                                C:\FORCE_FIELD\CHRONICLES\ROOT&gt; LOAD_STORIES.EXE
-                            </PromptLine>
+                            <PromptLine>{hero.prompt}</PromptLine>
                             <HeroTitle>
-                                <TitleLine>&gt; Chronicles from the Edge</TitleLine>
+                                <TitleLine>{hero.titleLine1}</TitleLine>
                                 <TitleLine $highlight>
-                                    Science fiction short stories
+                                    {hero.titleLine2}
                                     <Cursor>_</Cursor>
                                 </TitleLine>
                             </HeroTitle>
                         </HeroContent>
                         <HeroActions>
                             <AboutLink href="/about">
-                                <span>[ ABOUT ]</span>
+                                <span>{hero.about}</span>
                             </AboutLink>
                         </HeroActions>
                     </HeroCard>
@@ -214,15 +206,15 @@ export default function Hero() {
                 <HeroSidebar>
                     <DiagnosticsCard>
                         <DiagHeader>
-                            <DiagTitle>SYSTEM_DIAGNOSTICS</DiagTitle>
+                            <DiagTitle>{hero.diagTitle}</DiagTitle>
                             <LiveBadge>
                                 <LiveDot aria-hidden="true" />
-                                LIVE
+                                {hero.live}
                             </LiveBadge>
                         </DiagHeader>
 
                         <DiagBars>
-                            {DIAG_METRICS.map((metric) => (
+                            {hero.metrics.map((metric) => (
                                 <AnimatedBar
                                     key={metric.label}
                                     label={metric.label}
@@ -233,7 +225,10 @@ export default function Hero() {
                             ))}
                         </DiagBars>
 
-                        <TypewriterConsole reducedMotion={reducedMotion} />
+                        <TypewriterConsole
+                            reducedMotion={reducedMotion}
+                            lines={hero.consoleLines}
+                        />
                     </DiagnosticsCard>
                 </HeroSidebar>
             </HeroGrid>

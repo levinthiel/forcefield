@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { bracketButton, terminalChrome } from "../lib/terminalStyles";
+import { useLocale } from "../lib/LocaleContext";
 
 export default function FeedbackButton() {
+    const { t } = useLocale();
     const [revealed, setRevealed] = useState(false);
 
     const user = "&#102;&#111;&#114;&#99;&#101;&#102;&#105;&#101;&#108;&#100;&#115;&#116;&#111;&#114;&#105;&#101;&#115;";
@@ -26,7 +28,7 @@ export default function FeedbackButton() {
             <EmailContainer>
                 {!revealed ? (
                     <RevealButton type="button" onClick={() => setRevealed(true)}>
-                        <span>[ CONTACT / FEEDBACK ]</span>
+                        <span>{t.feedback.contact}</span>
                     </RevealButton>
                 ) : (
                     <MailLink href={`mailto:${decodedUser}@${decodedDomain}`}>

@@ -1,29 +1,19 @@
 import { keyframes, styled } from "styled-components";
 import { retroBorder, terminalChrome } from "../lib/terminalStyles";
+import { useLocale } from "../lib/LocaleContext";
 
 export default function AnnouncerTxt() {
+    const { t } = useLocale();
+    const text = `${t.announcer.marquee} `;
+
     return (
         <a href="https://open.spotify.com/playlist/2bSO3P9jssmmK2rS7iKuaN?si=263539ff2f80417d">
             <Wrapper>
-                <MarqueeLabel>[ TRANSMISSION ]</MarqueeLabel>
+                <MarqueeLabel>{t.announcer.label}</MarqueeLabel>
                 <MarqueeTrack>
                     <Marquee>
-                        <p>
-                            Good news my fellow carbon-based entities: &nbsp;
-                            This playlist was forged in the vacuum of space and blessed by a malfunctioning coffee machine. &nbsp;
-                            Perfect for reading Force Field Stories. &nbsp;
-                            Click on this banner, brave one. &nbsp;
-                            Add whatever helps you drift between dimensions, because it is collaborative. &nbsp;
-                            Plug in and Zone out. The ship’s AI is listening. &nbsp;
-                        </p>
-                        <p aria-hidden="true">
-                            Good news my fellow carbon-based entities: &nbsp;
-                            This playlist was forged in the vacuum of space and blessed by a malfunctioning coffee machine. &nbsp;
-                            Perfect for reading Force Field Stories. &nbsp;
-                            Click on this banner, brave one. &nbsp;
-                            Add whatever helps you drift between dimensions, because it is collaborative. &nbsp;
-                            Plug in and Zone out. The ship’s AI is listening. &nbsp;
-                        </p>
+                        <p>{text}</p>
+                        <p aria-hidden="true">{text}</p>
                     </Marquee>
                 </MarqueeTrack>
             </Wrapper>

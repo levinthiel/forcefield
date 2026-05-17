@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { cornerBracketHover, retroBorder, terminalChrome } from "../lib/terminalStyles";
+import { useLocale } from "../lib/LocaleContext";
 
 const ReadHint = styled.span`
     opacity: 0;
@@ -20,13 +21,16 @@ const CoverImage = styled.img`
 `;
 
 export default function Card({ storytitle, storyReadingTime, storyTags, storyCoverPath }) {
+    const { t } = useLocale();
+    const c = t.card;
+
     return (
         <CardWrapper>
             {storyCoverPath && (
                 <CoverFrame>
                     <CoverTitleBar>
-                        <span>STORY_ARCHIVE.EXE</span>
-                        <ReadHint>[ READ ]</ReadHint>
+                        <span>{c.archiveExe}</span>
+                        <ReadHint>{c.read}</ReadHint>
                     </CoverTitleBar>
                     <CardCover>
                         <CoverImage src={storyCoverPath} alt="" />
@@ -41,7 +45,7 @@ export default function Card({ storytitle, storyReadingTime, storyTags, storyCov
                     <CardTags>
                         <p>{storyTags}</p>
                     </CardTags>
-                    <CardReadingTime>reading time: {storyReadingTime}</CardReadingTime>
+                    <CardReadingTime>{c.readingTimePrefix} {storyReadingTime}</CardReadingTime>
                     <CardMetaData>
                         <small>V1.0.0</small>
                         <small>18112025</small>

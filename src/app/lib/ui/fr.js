@@ -1,0 +1,83 @@
+const fr = {
+    header: {
+        langGroupAria: "Langue",
+        statusAria: "État du système",
+        sysOnline: "SYS_ONLINE",
+        storyIndexReady: "STORY_INDEX: PRÊT",
+        sessionGuest: "SESSION: INVITÉ",
+        loc: "LOC: FF-01",
+    },
+    hero: {
+        prompt: "C:\\FORCE_FIELD\\CHRONICLES\\ROOT> LOAD_STORIES.EXE",
+        titleLine1: "> Chroniques du vide profond",
+        titleLine2: "Nouvelles de science-fiction",
+        about: "[ À PROPOS ]",
+        diagTitle: "DIAGNOSTIC_SYSTÈME",
+        live: "LIVE",
+        metrics: [
+            { label: "CHARGEMENT_INDEX", value: 98, delay: 0 },
+            { label: "SYNC_LECTEUR", value: 72, delay: 400 },
+            { label: "INTÉGRITÉ_ARCHIVE", value: 100, delay: 800 },
+        ],
+        consoleLines: [
+            "> CHARGEMENT STORY_INDEX...",
+            "> RÉCITS VÉRIFIÉS: EN LIGNE",
+            "> SIGNAL_CHRONIQUES: STABLE",
+            "> SYNC_ARCHIVE: OK",
+            "> LIAISON_LECTEUR: PRÊTE",
+            "> TAMPON_NARRATIF: VIDE",
+        ],
+    },
+    card: {
+        archiveExe: "STORY_ARCHIVE.EXE",
+        read: "[ LIRE ]",
+        readingTimePrefix: "durée de lecture :",
+    },
+    announcer: {
+        label: "[ TRANSMISSION ]",
+        marquee:
+            "Bonne nouvelle, entités à base de carbone : cette playlist a été forgée dans le vide de l'espace et bénie par une machine à café en panne. Parfaite pour lire les histoires Force Field. Cliquez sur cette bannière, brave âme. Ajoutez ce qui vous aide à dériver entre les dimensions — elle est collaborative. Branchez-vous et déconnectez-vous. L'IA du vaisseau écoute.",
+    },
+    footer: {
+        heading: "À propos de Force Field",
+        p1: "Bienvenue sur Force Field — une collection de nouvelles nées d'un amour de toute une vie pour la science-fiction dans toutes ses formes chaotiques, belles et bizarres.",
+        p2: "Force Field en est le résultat — mon petit hommage au genre qui a façonné mon cerveau, inspiré mon art et me garde encore éveillé la nuit en me demandant ce qu'il y a là-bas.",
+        p3: "Rien de fancy. Pas de grands discours. Juste des idées folles, racontées pour le plaisir.",
+        more: "[ PLUS ]",
+        whatsapp: "Ne manquez aucune mise à jour — rejoignez le canal WhatsApp",
+        spotify: "Écoutez et collaborez sur la playlist Force Field",
+        copyright: "Tous droits réservés. © Skeletron - 2025",
+    },
+    feedback: {
+        contact: "[ CONTACT / FEEDBACK ]",
+    },
+    storyPage: {
+        notFound: "Histoire introuvable.",
+        loadingNarrative: "CHARGEMENT_RÉCIT",
+        storyReaderExe: "STORY_READER.EXE",
+        rootAccess: "ACCÈS_ROOT",
+        coverAlt: "Image de la couverture",
+        backHomeAria: "Retour à l'accueil",
+        backTopAria: "Retour en haut",
+        toggleLightAria: "Changer le mode de lecture",
+    },
+    about: {
+        docLabel: "TERMINAL_DOCUMENT //",
+        title: "À propos de Force Field",
+        p1: "Bienvenue sur Force Field — une collection de nouvelles nées d'un amour de toute une vie pour la science-fiction dans toutes ses formes chaotiques, belles et bizarres.",
+        p2: "Ces récits traversent les genres : space opera, space horror, épidémies de zombies, exploration du deep space, avec des mondes nouveaux, des créatures étranges et des rebondissements à chaque étape. Chaque histoire est autonome — nouveaux personnages, nouveaux enjeux — mais toutes tournent autour de ce que la sci-fi fait de mieux : enflammer l'imagination, demander « et si ? », et parfois faire sauter des trucs en apesanteur.",
+        p3: "Enfant, j'ai été nourri à Batman: The Animated Series, Ghostbusters, TMNT et X-Men. Puis l'obsession — Alien, Predator, Babylon 5, Stargate, Firefly, Mass Effect. Livres, BD, audiobooks, jeux, même du cosplay. Mes playlists sont synthwave, mes étagères pleines de Moebius, Mignola, Guillaume Singelin, One Piece et Mutafukaz. Si c'est bizarre et sci-fi, je l'aime probablement.",
+        p4: "Force Field en est le résultat — mon petit hommage au genre qui a façonné mon cerveau, inspiré mon art et me garde encore éveillé la nuit.",
+        p5: "Et peut-être est-ce aussi une réaction au sentiment que tant de ce qu'on reçoit aujourd'hui — films, jeux, BD — paraît sûr, lisse, familier. Reboots, suites, spin-offs sans fin. Je voulais quelque chose d'un peu plus étrange. Un peu plus risqué. Plus proche de la sci-fi décalée, rugueuse et excitante qui m'a accroché au départ.",
+        p6: "Rien de fancy. Pas de grands discours. Juste des idées folles, racontées pour le plaisir.",
+        p7: "L'auteur ? Une forme de vie humanoïde sur Terra, dont le cœur bat quelque part entre un vaisseau abandonné et une ruelle au néon. Façonné par les sons laser, les chats et les rêves de pizza spatiale. On murmure qu'il serait mi-cyborg. Il écrit de la sci-fi pour éviter d'être rebooté.",
+        thanksTitle: "Remerciements",
+        thanksP1: "Cette collection n'existerait pas sans le soutien, l'encouragement et les distractions bien timées des gens que j'ai la chance d'avoir dans mon orbite.",
+        thanksP2: "À ma femme — ton amour, ta patience et ta foi discrète en moi sont le vrai champ de force qui tient toute cette opération ensemble. Tu es la gravité qui me garde les pieds sur terre quand ma tête part dans l'espace.",
+        thanksP3: "À ma mère — merci de m'avoir toujours encouragé, même quand je parlais de zombies dans l'espace.",
+        thanksP4: "Merci à mon frère Stephan, Josh, Sina, Conor et toute ma famille choisie — merci de supporter mes rants sci-fi sans fin et ma weirdness en général. Merci d'avoir lu mes histoires et donné votre avis. Vous avez tous contribué à façonner ceci, et j'en suis reconnaissant.",
+        thanksP5: "Celle-ci est pour vous, mes gens ❤",
+    },
+};
+
+export default fr;
