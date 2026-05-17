@@ -1,11 +1,13 @@
 import styled from "styled-components"
 import Card from "./Card"
-import stories from "../lib/allTheStories"
+import { useLocale } from "../lib/LocaleContext"
 import Link from "next/link"
 import AnnouncerTxt from "./AnnouncerTxt"
 import Hero from "./Hero"
 
 export default function Main() {
+    const { stories } = useLocale();
+
     return (
         <>
             <Hero />

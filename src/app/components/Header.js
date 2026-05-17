@@ -1,18 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { retroBorder, terminalChrome, bracketButton } from "../lib/terminalStyles";
+import { useLocale } from "../lib/LocaleContext";
 
 const LANGUAGES = ["EN", "DE", "FR"];
-
-function langFromBrowser() {
-    if (typeof navigator === "undefined") return "EN";
-    const code = (navigator.language || "en").toLowerCase();
-    if (code.startsWith("de")) return "DE";
-    if (code.startsWith("fr")) return "FR";
-    return "EN";
-}
 
 const HeaderShell = styled.div`
     position: sticky;
@@ -182,11 +174,8 @@ const LangButton = styled.button`
 `;
 
 export default function Header() {
-    const [activeLang, setActiveLang] = useState("EN");
-
-    useEffect(() => {
-        setActiveLang(langFromBrowser());
-    }, []);
+    const { locale, setLocale, t } = useLocale();
+    const h = t.header;
 
     return (
         <HeaderShell>
@@ -196,17 +185,17 @@ export default function Header() {
                     <LogoWordmark>Force Field</LogoWordmark>
                 </LinkHome>
 
-                <StatusBar aria-label="System status">
-                    <StatusItem data-variant="accent">SYS_ONLINE</StatusItem>
+                <StatusBar aria-label={h.statusAria}>
+                    <StatusItem data-variant="accent">{h.sysOnline}</StatusItem>
                     <StatusSep>|</StatusSep>
-                    <StatusItem>STORY_INDEX: READY</StatusItem>
+                    <StatusItem>{h.storyIndexReady}</StatusItem>
                     <StatusSep>|</StatusSep>
-                    <StatusItem>SESSION: GUEST</StatusItem>
+                    <StatusItem>{h.sessionGuest}</StatusItem>
                     <StatusSep>|</StatusSep>
-                    <StatusItem>LOC: FF-01</StatusItem>
+                    <StatusItem>{h.loc}</StatusItem>
                 </StatusBar>
 
-                <LangGroup role="group" aria-label="Language">
+                <LangGroup role="group" aria-label={h.langGroupAria}>
                     <LangGlobeIcon aria-hidden="true">
                         <svg
                             viewBox="0 0 24 24"
@@ -224,9 +213,9 @@ export default function Header() {
                         <LangButton
                             key={code}
                             type="button"
-                            data-active={activeLang === code}
-                            aria-pressed={activeLang === code}
-                            onClick={() => setActiveLang(code)}
+                            data-active={locale === code}
+                            aria-pressed={locale === code}
+                            onClick={() => setLocale(code)}
                         >
                             <span>{code}</span>
                         </LangButton>

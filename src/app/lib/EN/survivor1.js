@@ -1,6 +1,6 @@
 const survivor1 = [{ 
 	id: "survivor1",
-	title: "A day in a life",
+	title: "Chapter I - A day in a life",
 	smallcoverpath: "./survivor1/survivor1-s.png",
 	bigcoverpath: "/survivor1/survivor1-l.png",
 	time: "13 min",

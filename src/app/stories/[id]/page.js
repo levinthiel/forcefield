@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import stories from "../../lib/allTheStories";
+import { useLocale } from "../../lib/LocaleContext";
 import ReactMarkdown from "react-markdown";
 import styled, { css } from "styled-components";
 import Image from 'next/image'
@@ -13,6 +13,8 @@ import Link from "next/link";
 export default function StoryPage({ params }) {
   const resolvedParams = React.use(params);
   const { id } = resolvedParams;
+  const { stories, t } = useLocale();
+  const sp = t.storyPage;
   const story = stories.find((s) => s.id === id);
 
   const [lightMode, setLightMode] = useState(false);
@@ -35,24 +37,24 @@ export default function StoryPage({ params }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (!story) return <p>Story not found.</p>;
+  if (!story) return <p>{sp.notFound}</p>;
 
   return (
     <>
       <FloatingControls>
-        <HomeButton href="/" aria-label="Back to home">
+        <HomeButton href="/" aria-label={sp.backHomeAria}>
           <FaHouse />
         </HomeButton>
-        <TopButton href="#top" aria-label="Back to top">
+        <TopButton href="#top" aria-label={sp.backTopAria}>
           <FaArrowUp />
         </TopButton>
-        <LightButton onClick={toggleLightMode} role="button" tabIndex={0} aria-label="Toggle reading mode">
+        <LightButton onClick={toggleLightMode} role="button" tabIndex={0} aria-label={sp.toggleLightAria}>
           {lightMode ? <MdNightlight /> : <MdLightMode />}
         </LightButton>
       </FloatingControls>
 
       <ProgressContainer>
-        <ProgressLabel>LOADING_NARRATIVE</ProgressLabel>
+        <ProgressLabel>{sp.loadingNarrative}</ProgressLabel>
         <ProgressBar style={{ width: `${scrollProgress}%` }} >
           <Progress>{scrollProgress}%</Progress>
         </ProgressBar>
@@ -60,14 +62,14 @@ export default function StoryPage({ params }) {
 
       <StyledPage className={lightMode ? "light" : ""} id="top">
         <TerminalChrome>
-          <span>STORY_READER.EXE</span>
-          <span>ROOT_ACCESS</span>
+          <span>{sp.storyReaderExe}</span>
+          <span>{sp.rootAccess}</span>
         </TerminalChrome>
         <StyledImage
           src={story.bigcoverpath}
           width={500}
           height={709}
-          alt="Picture of the cover"
+          alt={sp.coverAlt}
           layout="responsive"
         />
         <hr />

@@ -1,0 +1,83 @@
+const de = {
+    header: {
+        langGroupAria: "Sprache",
+        statusAria: "Systemstatus",
+        sysOnline: "SYS_ONLINE",
+        storyIndexReady: "STORY_INDEX: BEREIT",
+        sessionGuest: "SESSION: GAST",
+        loc: "LOC: FF-01",
+    },
+    hero: {
+        prompt: "C:\\FORCE_FIELD\\CHRONICLES\\ROOT> LOAD_STORIES.EXE",
+        titleLine1: "> Chroniken aus dem tiefsten Weltraum",
+        titleLine2: "Science-Fiction-Kurzgeschichten",
+        about: "[ ÜBER ]",
+        diagTitle: "SYSTEM_DIAGNOSTIK",
+        live: "LIVE",
+        metrics: [
+            { label: "STORY_INDEX_LADEN", value: 98, delay: 0 },
+            { label: "LESER_SYNC", value: 72, delay: 400 },
+            { label: "ARCHIV_INTEGRITÄT", value: 100, delay: 800 },
+        ],
+        consoleLines: [
+            "> LADE STORY_INDEX...",
+            "> GESCHICHTEN VERIFIZIERT: ONLINE",
+            "> CHRONIKEN_SIGNAL: STABIL",
+            "> ARCHIV_SYNC: OK",
+            "> LESER_UPLINK: BEREIT",
+            "> NARRATIV_PUFFER: LEER",
+        ],
+    },
+    card: {
+        archiveExe: "STORY_ARCHIVE.EXE",
+        read: "[ LESEN ]",
+        readingTimePrefix: "Lesezeit:",
+    },
+    announcer: {
+        label: "[ ÜBERTRAGUNG ]",
+        marquee:
+            "Gute Nachrichten, ihr kohlenstoffbasierten Wesen: Diese Playlist wurde im Vakuum des Weltraums geschmiedet und von einer defekten Kaffeemaschine gesegnet. Perfekt zum Lesen von Force-Field-Geschichten. Klickt auf dieses Banner, Tapferer. Fügt hinzu, was euch zwischen den Dimensionen treibt — sie ist kollaborativ. Einstecken und abschalten. Die Schiffs-KI hört zu.",
+    },
+    footer: {
+        heading: "Über Force Field",
+        p1: "Willkommen bei Force Field — einer Sammlung Kurzgeschichten, geboren aus einer lebenslangen Liebe zur Science Fiction in all ihren chaotischen, schönen und bizarren Formen.",
+        p2: "Force Field ist das Ergebnis — mein kleiner Tribut an das Genre, das mein Gehirn geformt, meine Kunst inspiriert und mich nachts wach hält, weil ich mich frage, was da draußen ist.",
+        p3: "Nichts Fancy. Keine großen Statements. Nur verrückte Ideen, erzählt zum Spaß.",
+        more: "[ MEHR ]",
+        whatsapp: "Kein Update verpassen — WhatsApp-Kanal beitreten",
+        spotify: "Hör rein und arbeitet an der Force-Field-Playlist mit",
+        copyright: "Alle Rechte vorbehalten. © Skeletron - 2025",
+    },
+    feedback: {
+        contact: "[ KONTAKT / FEEDBACK ]",
+    },
+    storyPage: {
+        notFound: "Geschichte nicht gefunden.",
+        loadingNarrative: "LADE_NARRATIV",
+        storyReaderExe: "STORY_READER.EXE",
+        rootAccess: "ROOT_ZUGRIFF",
+        coverAlt: "Bild des Covers",
+        backHomeAria: "Zur Startseite",
+        backTopAria: "Nach oben",
+        toggleLightAria: "Lesemodus umschalten",
+    },
+    about: {
+        docLabel: "DOKUMENT_TERMINAL //",
+        title: "Über Force Field",
+        p1: "Willkommen bei Force Field — einer Sammlung Kurzgeschichten, geboren aus einer lebenslangen Liebe zur Science Fiction in all ihren chaotischen, schönen und bizarren Formen.",
+        p2: "Diese Erzählungen springen durch Genres: von Space Opera bis Space Horror, von Zombie-Ausbrüchen bis zur Tiefraumforschung, mit neuen Welten, seltsamen Kreaturen und unerwarteten Wendungen. Jede Geschichte steht für sich — neue Figuren, neue Einsätze — aber alle kreisen um dieselbe Liebe zu dem, was Sci-Fi am besten kann: Fantasie entfachen, fragen „was wäre wenn?“ und manchmal einfach im Nullg etwas in die Luft jagen.",
+        p3: "Als Kind wurde ich gefüttert mit Batman: The Animated Series, Ghostbusters, TMNT und X-Men. Daraus wurde eine Obsession — Alien, Predator, Babylon 5, Stargate, Firefly, Mass Effect. Bücher, Comics, Hörbücher, Spiele, sogar Cosplay. Meine Playlists sind Synthwave, meine Regale voll Moebius, Mignola, Guillaume Singelin, One Piece und Mutafukaz. Wenn es weird und Sci-Fi ist, liebe ich es wahrscheinlich.",
+        p4: "Force Field ist das Ergebnis — mein kleiner Tribut an das Genre, das mein Gehirn geformt, meine Kunst inspiriert und mich nachts wach hält.",
+        p5: "Und vielleicht ist es auch eine Reaktion darauf, dass so viel von dem, was wir heute bekommen — Filme, Spiele, Comics — sich sicher, poliert, vertraut anfühlt. Reboots, Fortsetzungen, endlose Spin-offs. Ich wollte etwas Fremderes. Etwas Riskanteres. Mehr wie die schräge, kantige, aufregende Sci-Fi, die mich am Anfang gepackt hat.",
+        p6: "Nichts Fancy. Keine großen Statements. Nur verrückte Ideen, erzählt zum Spaß.",
+        p7: "Der Autor? Ein menschenförmiges Lebewesen auf Terra, dessen Herz irgendwo zwischen einem verlassenen Raumschiff und einer neonbeleuchteten Gasse schlägt. Geformt von Lasersounds, Katzen und Träumen von Weltraum-Pizza. Gerüchte sagen, er sei halb Cyborg. Schreibt Sci-Fi, um nicht rebootet zu werden.",
+        thanksTitle: "Dank",
+        thanksP1: "Diese Sammlung gäbe es nicht ohne die Unterstützung, Ermutigung und gelegentlichen gut getimten Ablenkungen der Menschen in meinem Orbit.",
+        thanksP2: "Meiner Frau — deine Liebe, Geduld und leise Überzeugung in mich sind das echte Kraftfeld, das diese Operation zusammenhält. Du bist die Schwerkraft, die mich erdet, wenn mein Kopf ins All driftet.",
+        thanksP3: "Meiner Mutter — danke, dass du mich immer angefeuert hast, selbst als ich über Zombies im All redete.",
+        thanksP4: "Großen Dank an meinen Bruder Stephan, Josh, Sina, Conor und all meine anderen Freunde und Wahlverwandtschaft — danke, dass ihr meine endlosen Sci-Fi-Rants und mein generelles Weirdness ertragt. Danke, dass ihr meine Geschichten lest und Feedback gebt. Ihr habt das alles mitgeformt, und ich bin dankbar für jedes Stück.",
+        thanksP5: "Die ist für euch, meine Leute ❤",
+    },
+};
+
+export default de;
