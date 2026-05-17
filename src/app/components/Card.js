@@ -1,14 +1,40 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { cornerBracketHover, retroBorder, terminalChrome } from "../lib/terminalStyles";
 
-export default function Card({storytitle,storyReadingTime,storyTags, storyCoverPath }) {
+const ReadHint = styled.span`
+    opacity: 0;
+    transition: opacity 0.25s;
+    color: var(--red);
+`;
+
+const CoverImage = styled.img`
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+    transform: scale(1);
+`;
+
+export default function Card({ storytitle, storyReadingTime, storyTags, storyCoverPath }) {
     return (
         <CardWrapper>
-            {storyCoverPath && 
-                <CardCover $bigcoverpath={storyCoverPath}>
-                    <ImageOverlayDots></ImageOverlayDots>
-                    <ImageOverlayGradient></ImageOverlayGradient>
-                </CardCover>
-            }
+            {storyCoverPath && (
+                <CoverFrame>
+                    <CoverTitleBar>
+                        <span>STORY_ARCHIVE.EXE</span>
+                        <ReadHint>[ READ ]</ReadHint>
+                    </CoverTitleBar>
+                    <CardCover>
+                        <CoverImage src={storyCoverPath} alt="" />
+                        <ImageOverlayDots />
+                        <ImageOverlayGradient />
+                    </CardCover>
+                </CoverFrame>
+            )}
 
             <CardBodyWrapper>
                 <CardTitle>{storytitle}</CardTitle>
@@ -24,8 +50,8 @@ export default function Card({storytitle,storyReadingTime,storyTags, storyCoverP
                     </CardMetaData>
                 </CardBody>
             </CardBodyWrapper>
-            </CardWrapper>
-    )
+        </CardWrapper>
+    );
 }
 
 const CardWrapper = styled.section`
@@ -35,76 +61,142 @@ const CardWrapper = styled.section`
     flex-direction: column;
     color: var(--beige);
     cursor: pointer;
-    transition:all .3s;
+    border: 1px solid var(--ff-border);
+    border-radius: 2px;
+    ${cornerBracketHover}
 
-    &:hover{
-        opacity:0.8;
-        box-shadow: 0px 0px 40px rgba(22, 22, 22, 0.4);
+    & > * {
+        position: relative;
+        z-index: 2;
+    }
+
+    &:hover ${ReadHint} {
+        opacity: 1;
+    }
+
+    &:hover ${CoverImage} {
+        transform: scale(1.04);
     }
 `;
 
+const CoverFrame = styled.div`
+    ${retroBorder}
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    overflow: hidden;
+    background: var(--ff-surface);
+    width: 100%;
+    flex-shrink: 0;
+`;
+
+const CoverTitleBar = styled.div`
+    ${terminalChrome}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    background: rgba(236, 232, 215, 0.12);
+    border-bottom: 1px solid var(--ff-border);
+    color: var(--beige);
+`;
+
 const CardCover = styled.div`
+    position: relative;
     width: 100%;
-    aspect-ratio: 2 / 3;  /* Portrait format */
-    border: 2px solid var(--beige);
-    background: ${({ $bigcoverpath }) => $bigcoverpath ? `url(${$bigcoverpath})` : 'none'} center center / cover;
-    border-radius: 7px;
-    position:relative;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
 `;
+
 const ImageOverlayDots = styled.div`
-    width: 100%;
-    height: 100%;
     position: absolute;
-    background: rgba(0, 0, 0, 0) radial-gradient(rgba(255, 255, 255, 0.212) 10%, transparent 1%);
-    background-size: 11px 11px;
+    inset: 0;
+    background: rgba(0, 0, 0, 0) var(--ff-dot-gradient);
+    background-size: var(--ff-dot-size) var(--ff-dot-size);
+    pointer-events: none;
+    z-index: 1;
 `;
+
 const ImageOverlayGradient = styled.div`
-    width: 100%;
-    height: 100%;
     position: absolute;
+    inset: 0;
     background: linear-gradient(0deg, rgba(180, 27, 6, 0.1) 0%, rgba(17, 17, 17, 0) 100%);
+    pointer-events: none;
+    z-index: 1;
 `;
+
 const CardBodyWrapper = styled.div`
     width: 100%;
-    height: 100%;
-    border: 2px solid var(--beige);
-    border-radius: 7px;
-    margin-top: 5px;
+    flex: 1 1 auto;
+    border-radius: 0;
+    border: none;
+    margin-top: 0;
     display: flex;
     flex-direction: column;
+    background: rgba(42, 42, 42, 0.65);
+    min-height: 0;
 `;
+
 const CardBody = styled.div`
-    padding: 16px;
+    padding: 6px 10px 8px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    `;
+    gap: 2px;
+    flex: 1 1 auto;
+`;
+
 const CardTitle = styled.h2`
     text-transform: uppercase;
     font-weight: normal;
-    font-family: "Mentra";
-    font-size: 40px;
+    font-family: "Mentra", sans-serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
     color: var(--beige);
-    padding: 16px;
-    letter-spacing: 2px;
-    line-height: 1.2;
+    padding: 8px 10px 4px;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    min-height: 2.4em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-shadow: none;
+    border-bottom: 1px solid rgba(236, 232, 215, 0.15);
 `;
+
 const CardTags = styled.div`
-    font-family: poppins;
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
     display: flex;
     gap: 5px;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+
+    p {
+        margin: 0;
+    }
 `;
-const CardReadingTime = styled.p `
+
+const CardReadingTime = styled.p`
+    margin: 0;
     text-align: left;
-    font-size: small;
+    font-size: 0.7rem;
     font-style: italic;
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    opacity: 0.85;
+    line-height: 1.3;
 `;
+
 const CardMetaData = styled.div`
     display: flex;
     justify-content: start;
     font-weight: 400;
-    font-size: 12px;
-    gap: 10px;
-    margin-top: 15px;
-    opacity: 0.5;
+    font-size: 0.65rem;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 4px;
+    opacity: 0.55;
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 `;

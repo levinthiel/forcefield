@@ -1,12 +1,14 @@
 "use client"
 import styled from "styled-components";
+import { retroBorder, terminalChrome, textGlow } from "../lib/terminalStyles";
 
 export default function AboutPage() {
     return (
         <StyledPage>
-            <StyledH1>
-                About Force Field
-            </StyledH1>
+            <DocHeader>
+                <DocLabel>DOCUMENT_TERMINAL //</DocLabel>
+                <StyledH1>About Force Field</StyledH1>
+            </DocHeader>
             <p>
                 Welcome to <em>Force Field</em> — a collection of short stories born from a lifelong love of science fiction in all its chaotic, beautiful, and bizarre forms.
             </p>
@@ -35,9 +37,10 @@ export default function AboutPage() {
                 He is a human-shaped lifeform who lives on Terra, but whose heart is somewhere between a derelict spaceship and a neon-lit alley. 
                 Shaped by laser sounds, cats, and dreams of space pizza. Rumoured to be part cyborg. Writing sci-fi to avoid being rebooted.
             </p>
-            <StyledH2>
-                Thanks
-            </StyledH2>
+            <SectionDivider />
+            <DocHeader>
+                <StyledH2>Thanks</StyledH2>
+            </DocHeader>
             <p>
                 This collection wouldn’t exist without the support, encouragement, and occasional well-timed distractions provided by the people I’m lucky to have in my orbit.
             </p>
@@ -62,25 +65,63 @@ export default function AboutPage() {
 const StyledPage = styled.article`
   margin: 2rem auto;
   padding: 3rem;
-  border: 2px solid var(--beige);
-  border-radius: 7px;
+  ${retroBorder}
+  border-radius: 2px;
   color: var(--beige);
   width: 100%;
   font-weight: normal;
   max-width: 800px;
+  background: rgba(42, 42, 42, 0.55);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.35);
 
   p {
     margin: 10px 0;
+    line-height: 1.65;
+  }
+
+  em {
+    font-style: italic;
+    color: var(--beige);
   }
 
   @media (max-width: 530px) {
-
     padding: 1rem;
   }
 `;
-const StyledH1 = styled.h1 `
-    margin-bottom: 1rem;
+
+const DocHeader = styled.div`
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(236, 232, 215, 0.25);
 `;
-const StyledH2 = styled.h2 `
-    margin:2rem 0 1rem 0;
+
+const DocLabel = styled.span`
+  ${terminalChrome}
+  display: block;
+  color: var(--red);
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
+`;
+
+const SectionDivider = styled.hr`
+  border: none;
+  border-top: 1px dashed rgba(236, 232, 215, 0.25);
+  margin: 2rem 0;
+`;
+
+const StyledH1 = styled.h1`
+    ${textGlow}
+    font-family: "Mentra", sans-serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+`;
+
+const StyledH2 = styled.h2`
+    ${textGlow}
+    font-family: "Mentra", sans-serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
 `;

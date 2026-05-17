@@ -62,6 +62,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${outfit.className}`}>
+        <div className="crt-vignette" aria-hidden="true" />
+        <div className="crt-overlay" aria-hidden="true" />
         <Header/>
         {children}
         <Footer/>
