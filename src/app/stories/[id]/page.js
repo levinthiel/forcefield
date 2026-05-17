@@ -2,12 +2,13 @@
 import React, { useEffect, useState } from "react";
 import stories from "../../lib/allTheStories";
 import ReactMarkdown from "react-markdown";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Image from 'next/image'
 import { MdLightMode } from "react-icons/md";
 import { MdNightlight } from "react-icons/md";
-import { FaArrowUp } from "react-icons/fa6";
-import { bracketButton, retroBorder, terminalChrome, textGlow } from "../../lib/terminalStyles";
+import { FaArrowUp, FaHouse } from "react-icons/fa6";
+import { cornerBracketHover, retroBorder, terminalChrome, textGlow } from "../../lib/terminalStyles";
+import Link from "next/link";
 
 export default function StoryPage({ params }) {
   const resolvedParams = React.use(params);
@@ -38,13 +39,17 @@ export default function StoryPage({ params }) {
 
   return (
     <>
-      <TopButton href="#top" aria-label="Back to top">
-        <FaArrowUp />
-      </TopButton>
-
-      <LightButton onClick={toggleLightMode} role="button" tabIndex={0} aria-label="Toggle reading mode">
-        {lightMode ? <MdNightlight /> : <MdLightMode />}
-      </LightButton>
+      <FloatingControls>
+        <HomeButton href="/" aria-label="Back to home">
+          <FaHouse />
+        </HomeButton>
+        <TopButton href="#top" aria-label="Back to top">
+          <FaArrowUp />
+        </TopButton>
+        <LightButton onClick={toggleLightMode} role="button" tabIndex={0} aria-label="Toggle reading mode">
+          {lightMode ? <MdNightlight /> : <MdLightMode />}
+        </LightButton>
+      </FloatingControls>
 
       <ProgressContainer>
         <ProgressLabel>LOADING_NARRATIVE</ProgressLabel>
@@ -52,13 +57,6 @@ export default function StoryPage({ params }) {
           <Progress>{scrollProgress}%</Progress>
         </ProgressBar>
       </ProgressContainer>
-
-      <LinkBox>
-        <LinkHome href="/">
-          <span>[ BACK ]</span>
-        </LinkHome>
-        <LinkEmpty />
-      </LinkBox>
 
       <StyledPage className={lightMode ? "light" : ""} id="top">
         <TerminalChrome>
@@ -78,75 +76,57 @@ export default function StoryPage({ params }) {
           <ReactMarkdown>{story.storyContent}</ReactMarkdown>
         </StyledMarkdown>
       </StyledPage>
-      <LinkBox>
-        <LinkHome href="/">
-          <span>[ BACK ]</span>
-        </LinkHome>
-        <LinkEmpty />
-      </LinkBox>
     </>
   );
 }
 
-const TopButton = styled.a`
+const fabButtonStyles = css`
+  ${cornerBracketHover}
   display: flex;
-  position: fixed;
-  bottom: 30px;
-  right: 70px;
   width: 44px;
   height: 44px;
   background: var(--black);
-  border-radius: 2px;
   border: 1px solid var(--beige);
+  border-radius: 0;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  z-index: 60;
-  box-shadow: 0 0 10px rgba(236, 232, 215, 0.15);
-  transition: box-shadow 0.2s, transform 0.2s;
+  text-decoration: none;
+  flex-shrink: 0;
 
-  &:hover {
-    box-shadow: 0 0 14px rgba(180, 27, 6, 0.35);
-    transform: translateY(-2px);
+  &::before,
+  &::after {
+    background: var(--black);
   }
 
   svg {
+    position: relative;
+    z-index: 2;
+    width: 18px;
+    height: 18px;
     fill: var(--beige);
   }
 `;
 
-const LightButton = styled.div`
-  display: flex;
+const FloatingControls = styled.div`
   position: fixed;
   bottom: 30px;
   right: 20px;
-  width: 44px;
-  height: 44px;
-  background: var(--black);
-  border-radius: 2px;
-  border: 1px solid var(--beige);
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  display: flex;
+  gap: 8px;
   z-index: 60;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(236, 232, 215, 0.15);
+`;
 
-  svg {
-    width: 20px;
-    height: 20px;
-    fill: var(--beige);
-  }
+const HomeButton = styled(Link)`
+  ${fabButtonStyles}
+`;
 
-  &:hover {
-    transform: rotate(180deg);
-    box-shadow: 0 0 14px rgba(180, 27, 6, 0.35);
+const TopButton = styled.a`
+  ${fabButtonStyles}
+`;
 
-    svg {
-      width: 24px;
-      height: 24px;
-    }
-  }
+const LightButton = styled.div`
+  ${fabButtonStyles}
 `;
 
 const ProgressContainer = styled.div`
@@ -209,7 +189,7 @@ const StyledPage = styled.article`
   color: var(--beige);
   width: 100%;
   max-width: 800px;
-  background: rgba(42, 42, 42, 0.55);
+  background: rgba(42, 42, 42, 0.92);
   overflow: hidden;
 
   hr {
@@ -232,31 +212,6 @@ const StyledPage = styled.article`
   @media (max-width: 530px) {
     padding: 0 1rem 1rem;
   }
-`;
-
-const LinkBox = styled.div`
-  width: 100%;
-  display: flex;
-  gap: 1rem;
-`;
-
-const LinkHome = styled.a`
-  ${bracketButton}
-  width: 20%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 100px;
-`;
-
-const LinkEmpty = styled.div`
-  width: 80%;
-  border-radius: 2px;
-  border: 1px solid var(--ff-border);
-  background: url(/lines.svg) center center;
-  background-size: cover;
-  opacity: 0.85;
-  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.35);
 `;
 
 const StyledImage = styled(Image)`
