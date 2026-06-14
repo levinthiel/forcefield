@@ -10,7 +10,7 @@ Je m'appelle Pierce, j'ai eu douze ans l'hiver dernier.
 
 Des choses assez incroyables m'arrivent ces temps-ci. Par incroyable, j'entends « invraisemblable » – si folles et invraisemblables que, si je racontais mon histoire à quelqu'un que je connais, elle semblerait tellement tirée par les cheveux qu'on croirait que j'ai perdu la tête.
 
-Mais il faut que je le dise à quelqu'un ! Alors, qui que vous soyez, voici mon histoire.
+Mais il faut que je le raconte à quelqu'un ! Alors, qui que vous soyez, voici mon histoire.
 
 Tout a commencé il y a environ une pleine lune, alors que je rentrais du château de Celtgish chez mes parents. Le soleil se couchait, mais si je marchais assez vite, j'arriverais avant la nuit.
 
