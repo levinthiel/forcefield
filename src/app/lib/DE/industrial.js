@@ -1,5 +1,6 @@
 const industrial = [{ 
 	id: "industrial",
+	cluster: "cc1",
 	title: "Industriespionage",
 	smallcoverpath: "./industrial/industrial-s.png",
 	bigcoverpath: "/industrial/industrial-l.png",

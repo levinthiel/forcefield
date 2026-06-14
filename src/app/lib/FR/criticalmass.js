@@ -1,5 +1,6 @@
 const criticalmass = [{ 
 	id: "criticalmass",
+	cluster: "cc1",
 	title: "Masse critique",
 	smallcoverpath: "./tunnels/tunnels-s.png",
 	bigcoverpath: "/criticalmass/criticalmassl.png",

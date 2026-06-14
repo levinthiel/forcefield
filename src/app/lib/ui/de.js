@@ -28,6 +28,20 @@ const de = {
             "> NARRATIV_PUFFER: LEER",
         ],
     },
+    clusters: {
+        cc2: {
+            prompt: "C:\\FORCE_FIELD\\CHRONICLES\\CC2> STATUS: GESPERRT",
+            titleLine1: "> Chroniken — Cluster Zwei",
+            titleLine2: "Geschichten demnächst",
+            badge: "[ DEMNÄCHST ]",
+        },
+        cc1: {
+            prompt: "C:\\FORCE_FIELD\\CHRONICLES\\CC1> LOAD_CLUSTER.EXE",
+            titleLine1: "> Chroniken — Cluster Eins",
+            titleLine2: "Der erste Cluster ist online — lest die zehn Geschichten unten",
+            badge: "[ VERFÜGBAR ]",
+        },
+    },
     card: {
         archiveExe: "STORY_ARCHIVE.EXE",
         read: "[ LESEN ]",

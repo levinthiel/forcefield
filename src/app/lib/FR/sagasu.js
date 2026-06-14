@@ -1,5 +1,6 @@
 const sagasu = [{ 
 	id: "sagasu",
+	cluster: "cc1",
 	title: "L'incident du Sagasu",
 	smallcoverpath: "./sagasu/sagasu-s.png",
 	bigcoverpath: "/sagasu/sagasu-l.png",
