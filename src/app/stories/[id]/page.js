@@ -245,6 +245,10 @@ const StyledMarkdown = styled.div`
     border-left: 2px solid var(--red);
   }
 
+  p {
+    margin: 1rem 0;
+  }
+
   em {
     font-style: italic;
   }
