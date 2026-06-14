@@ -40,6 +40,7 @@ const fr = {
             titleLine1: "> Chroniques — Cluster Un",
             titleLine2: "Le premier cluster est en ligne — lisez les dix histoires ci-dessous",
             badge: "[ DISPONIBLE ]",
+            coverAlt: "Couverture du Cluster Un des Chroniques",
         },
     },
     card: {

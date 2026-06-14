@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import styled, { css, keyframes } from "styled-components";
 import {
     boxGlow,
@@ -13,21 +14,33 @@ const blink = keyframes`
     50%, 100% { opacity: 0; }
 `;
 
-export default function ClusterBanner({ copy }) {
+export default function ClusterBanner({ copy, coverImage }) {
     return (
         <BannerSection>
             <BannerCard>
                 <BannerBgGrid aria-hidden="true" />
-                <BannerContent>
-                    <PromptLine>{copy.prompt}</PromptLine>
-                    <BannerTitle>
-                        <TitleLine>{copy.titleLine1}</TitleLine>
-                        <TitleLine $highlight>
-                            {copy.titleLine2}
-                            <Cursor>_</Cursor>
-                        </TitleLine>
-                    </BannerTitle>
-                </BannerContent>
+                <BannerLayout>
+                    {coverImage && (
+                        <CoverWrap>
+                            <CoverImage
+                                src={coverImage}
+                                alt={copy.coverAlt ?? ""}
+                                width={220}
+                                height={330}
+                            />
+                        </CoverWrap>
+                    )}
+                    <BannerContent>
+                        <PromptLine>{copy.prompt}</PromptLine>
+                        <BannerTitle>
+                            <TitleLine>{copy.titleLine1}</TitleLine>
+                            <TitleLine $highlight>
+                                {copy.titleLine2}
+                                <Cursor>_</Cursor>
+                            </TitleLine>
+                        </BannerTitle>
+                    </BannerContent>
+                </BannerLayout>
             </BannerCard>
         </BannerSection>
     );
@@ -43,6 +56,27 @@ const BannerSection = styled.section`
     }
 `;
 
+const CoverWrap = styled.div`
+    flex-shrink: 0;
+    width: 90px;
+    border: 1px solid var(--ff-border);
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(180, 27, 6, 0.15);
+    overflow: hidden;
+
+    @media (min-width: 640px) {
+        width: 120px;
+    }
+`;
+
+const CoverImage = styled(Image)`
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+    transform: scale(1);
+`;
+
 const BannerCard = styled.div`
     ${retroBorder}
     ${boxGlow}
@@ -53,6 +87,29 @@ const BannerCard = styled.div`
 
     @media (min-width: 640px) {
         padding: 1.25rem 2rem;
+    }
+
+    &:hover ${CoverImage} {
+        transform: scale(1.1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &:hover ${CoverImage} {
+            transform: scale(1);
+        }
+    }
+`;
+
+const BannerLayout = styled.div`
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+
+    @media (max-width: 640px) {
+        gap: 0.75rem;
     }
 `;
 
@@ -68,8 +125,7 @@ const BannerBgGrid = styled.div`
 `;
 
 const BannerContent = styled.div`
-    position: relative;
-    z-index: 1;
+    text-align: left;
 `;
 
 const PromptLine = styled.p`

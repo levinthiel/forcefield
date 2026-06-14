@@ -40,6 +40,7 @@ const de = {
             titleLine1: "> Chroniken — Cluster Eins",
             titleLine2: "Der erste Cluster ist online — lest die zehn Geschichten unten",
             badge: "[ VERFÜGBAR ]",
+            coverAlt: "Cover von Chroniken Cluster Eins",
         },
     },
     card: {

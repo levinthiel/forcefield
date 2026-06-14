@@ -27,7 +27,10 @@ export default function Main() {
 
                 return (
                     <ClusterSection key={cluster.id}>
-                        <ClusterBanner copy={copy} />
+                        <ClusterBanner
+                            copy={copy}
+                            coverImage={cluster.coverImage}
+                        />
                         <StoryGrid>
                             {clusterStories.map((story) => (
                                 <StoryLink key={story.id} href={`/stories/${story.id}`}>

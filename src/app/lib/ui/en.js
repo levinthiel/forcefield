@@ -40,6 +40,7 @@ const en = {
             titleLine1: "> Chronicles Cluster One",
             titleLine2: "The first cluster is out now — read the ten stories below",
             badge: "[ AVAILABLE ]",
+            coverAlt: "Chronicles Cluster One cover",
         },
     },
     card: {
