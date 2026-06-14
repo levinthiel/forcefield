@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { retroBorder, terminalChrome, bracketButton } from "../lib/terminalStyles";
 import { useLocale } from "../lib/LocaleContext";
 
-const LANGUAGES = ["EN", "DE", "FR"];
+const LANGUAGES = ["EN", "FR"];
 
 const HeaderShell = styled.div`
     position: sticky;
