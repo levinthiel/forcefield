@@ -28,6 +28,21 @@ const en = {
             "> NARRATIVE_BUFFER: CLEAR",
         ],
     },
+    clusters: {
+        cc2: {
+            prompt: "C:\\FORCE_FIELD\\CHRONICLES\\CC2> STATUS: LOCKED",
+            titleLine1: "> Chronicles Cluster Two",
+            titleLine2: "Stories coming soon",
+            badge: "[ COMING SOON ]",
+        },
+        cc1: {
+            prompt: "C:\\FORCE_FIELD\\CHRONICLES\\CC1> LOAD_CLUSTER.EXE",
+            titleLine1: "> Chronicles Cluster One",
+            titleLine2: "The first cluster is out now — read the ten stories below",
+            badge: "[ AVAILABLE ]",
+            coverAlt: "Chronicles Cluster One cover",
+        },
+    },
     card: {
         archiveExe: "STORY_ARCHIVE.EXE",
         read: "[ READ ]",

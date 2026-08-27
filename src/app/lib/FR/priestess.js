@@ -1,5 +1,6 @@
 const priestess = [{ 
 	id: "priestess",
+	cluster: "cc1",
 	title: "La Prêtresse",
 	smallcoverpath: "./priestess/priestess-s.png",
 	bigcoverpath: "/priestess/priestess-l.png",

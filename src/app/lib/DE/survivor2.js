@@ -1,5 +1,6 @@
 const survivor2 = [{ 
 	id: "survivor2",
+	cluster: "cc1",
 	title: "Kapitel II – Untote Umwege und Sackgassen",
 	smallcoverpath: "./survivor2/survivor2-s.png",
 	bigcoverpath: "/survivor2/survivor2-l.png",

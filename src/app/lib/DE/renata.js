@@ -1,5 +1,6 @@
 const renata = [{
 	id: "renata",
+	cluster: "cc1",
 	title: "Projekt Renata",
 	smallcoverpath: "./renata/renata.png",
 	bigcoverpath: "/renata/renata.png",

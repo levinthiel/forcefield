@@ -28,6 +28,21 @@ const fr = {
             "> TAMPON_NARRATIF: VIDE",
         ],
     },
+    clusters: {
+        cc2: {
+            prompt: "C:\\FORCE_FIELD\\CHRONICLES\\CC2> STATUT: VERROUILLÉ",
+            titleLine1: "> Chroniques — Cluster Deux",
+            titleLine2: "Histoires bientôt disponibles",
+            badge: "[ BIENTÔT ]",
+        },
+        cc1: {
+            prompt: "C:\\FORCE_FIELD\\CHRONICLES\\CC1> LOAD_CLUSTER.EXE",
+            titleLine1: "> Chroniques — Cluster Un",
+            titleLine2: "Le premier cluster est en ligne — lisez les dix histoires ci-dessous",
+            badge: "[ DISPONIBLE ]",
+            coverAlt: "Couverture du Cluster Un des Chroniques",
+        },
+    },
     card: {
         archiveExe: "STORY_ARCHIVE.EXE",
         read: "[ LIRE ]",

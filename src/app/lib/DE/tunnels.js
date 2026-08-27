@@ -1,5 +1,6 @@
 const tunnels = [{ 
 	id: "tunnels",
+	cluster: "cc1",
 	title: "Tunnel",
 	smallcoverpath: "./tunnels/tunnels-s.png",
 	bigcoverpath: "/tunnels/tunnels-l.png",
