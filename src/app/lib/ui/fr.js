@@ -43,6 +43,12 @@ const fr = {
             coverAlt: "Couverture du Cluster Un des Chroniques",
         },
     },
+    clusterSort: {
+        label: "TRI:",
+        newest: "Plus récentes",
+        oldest: "Plus anciennes",
+        ariaLabel: "Ordre de tri des histoires",
+    },
     card: {
         archiveExe: "STORY_ARCHIVE.EXE",
         read: "[ LIRE ]",

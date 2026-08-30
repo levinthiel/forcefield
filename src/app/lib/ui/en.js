@@ -43,6 +43,12 @@ const en = {
             coverAlt: "Chronicles Cluster One cover",
         },
     },
+    clusterSort: {
+        label: "SORT:",
+        newest: "Newest first",
+        oldest: "Oldest first",
+        ariaLabel: "Story sort order",
+    },
     card: {
         archiveExe: "STORY_ARCHIVE.EXE",
         read: "[ READ ]",
