@@ -4,9 +4,9 @@ import { LocaleProvider } from "../lib/LocaleContext";
 import Header from "./Header";
 import Footer from "./Footer";
 
-export default function LocaleShell({ children }) {
+export default function LocaleShell({ children, storiesByLocale, clusters }) {
     return (
-        <LocaleProvider>
+        <LocaleProvider storiesByLocale={storiesByLocale} clusters={clusters}>
             <Header />
             {children}
             <Footer />

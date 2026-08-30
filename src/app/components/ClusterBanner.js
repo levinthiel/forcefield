@@ -14,32 +14,57 @@ const blink = keyframes`
     50%, 100% { opacity: 0; }
 `;
 
-export default function ClusterBanner({ copy, coverImage }) {
+export default function ClusterBanner({
+    copy,
+    coverImage,
+    clusterId,
+    sortLabels,
+    sortOrder,
+    onSortChange,
+}) {
     return (
         <BannerSection>
             <BannerCard>
                 <BannerBgGrid aria-hidden="true" />
                 <BannerLayout>
-                    {coverImage && (
-                        <CoverWrap>
-                            <CoverImage
-                                src={coverImage}
-                                alt={copy.coverAlt ?? ""}
-                                width={220}
-                                height={330}
-                            />
-                        </CoverWrap>
+                    <BannerMain>
+                        {coverImage && (
+                            <CoverWrap>
+                                <CoverImage
+                                    src={coverImage}
+                                    alt={copy.coverAlt ?? ""}
+                                    width={220}
+                                    height={330}
+                                />
+                            </CoverWrap>
+                        )}
+                        <BannerContent>
+                            <PromptLine>{copy.prompt}</PromptLine>
+                            <BannerTitle>
+                                <TitleLine>{copy.titleLine1}</TitleLine>
+                                <TitleLine $highlight>
+                                    {copy.titleLine2}
+                                    <Cursor>_</Cursor>
+                                </TitleLine>
+                            </BannerTitle>
+                        </BannerContent>
+                    </BannerMain>
+                    {sortLabels && onSortChange && (
+                        <SortControl>
+                            <SortLabel htmlFor={`cluster-sort-${clusterId}`}>
+                                {sortLabels.label}
+                            </SortLabel>
+                            <SortSelect
+                                id={`cluster-sort-${clusterId}`}
+                                value={sortOrder}
+                                onChange={onSortChange}
+                                aria-label={sortLabels.ariaLabel}
+                            >
+                                <option value="newest">{sortLabels.newest}</option>
+                                <option value="oldest">{sortLabels.oldest}</option>
+                            </SortSelect>
+                        </SortControl>
                     )}
-                    <BannerContent>
-                        <PromptLine>{copy.prompt}</PromptLine>
-                        <BannerTitle>
-                            <TitleLine>{copy.titleLine1}</TitleLine>
-                            <TitleLine $highlight>
-                                {copy.titleLine2}
-                                <Cursor>_</Cursor>
-                            </TitleLine>
-                        </BannerTitle>
-                    </BannerContent>
                 </BannerLayout>
             </BannerCard>
         </BannerSection>
@@ -105,8 +130,24 @@ const BannerLayout = styled.div`
     z-index: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1.25rem;
+    width: 100%;
+
+    @media (max-width: 640px) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+`;
+
+const BannerMain = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.25rem;
+    flex: 1;
+    min-width: 0;
 
     @media (max-width: 640px) {
         gap: 0.75rem;
@@ -178,5 +219,44 @@ const Cursor = styled.span`
 
     @media (prefers-reduced-motion: reduce) {
         animation: none;
+    }
+`;
+
+const SortControl = styled.div`
+    ${terminalChrome}
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: clamp(0.45rem, 1.2vw, 0.65rem);
+    opacity: 0.85;
+
+    @media (max-width: 640px) {
+        margin-left: 0;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+`;
+
+const SortLabel = styled.label`
+    color: var(--beige);
+    white-space: nowrap;
+`;
+
+const SortSelect = styled.select`
+    background: rgba(17, 17, 17, 0.85);
+    color: var(--beige);
+    border: 1px solid var(--ff-border);
+    border-radius: 0;
+    padding: 0.2rem 0.4rem;
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    font-size: inherit;
+    cursor: pointer;
+
+    &:focus {
+        outline: 1px solid var(--red);
+        outline-offset: 1px;
     }
 `;

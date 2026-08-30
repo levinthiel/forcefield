@@ -4,6 +4,7 @@ import "./globals.css";
 import { Outfit } from 'next/font/google';
 import { Poppins } from 'next/font/google';
 import LocaleShell from "./components/LocaleShell";
+import { fetchSiteContent } from "../../sanity/lib/queries";
 
 const outfit = Outfit({
   weight: '900',
@@ -53,16 +54,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export const revalidate = 60;
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { storiesByLocale, clusters } = await fetchSiteContent();
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${outfit.className}`}>
         <div className="crt-overlay" aria-hidden="true" />
-        <LocaleShell>{children}</LocaleShell>
+        <LocaleShell storiesByLocale={storiesByLocale} clusters={clusters}>
+          {children}
+        </LocaleShell>
       </body>
     </html>
   );

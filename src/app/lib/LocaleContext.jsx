@@ -1,7 +1,6 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { getStories } from "./allTheStories";
 import uiEN from "./ui/en";
 import uiDE from "./ui/de";
 import uiFR from "./ui/fr";
@@ -20,6 +19,8 @@ const HTML_LANG = {
     FR: "fr",
 };
 
+const EMPTY_STORIES = { EN: [], DE: [], FR: [] };
+
 export function langFromBrowser() {
     if (typeof navigator === "undefined") return "EN";
     const code = (navigator.language || "en").toLowerCase();
@@ -30,7 +31,7 @@ export function langFromBrowser() {
 
 const LocaleContext = createContext(null);
 
-export function LocaleProvider({ children }) {
+export function LocaleProvider({ children, storiesByLocale = EMPTY_STORIES, clusters = [] }) {
     const [locale, setLocaleState] = useState("EN");
     const [hydrated, setHydrated] = useState(false);
 
@@ -60,11 +61,12 @@ export function LocaleProvider({ children }) {
         () => ({
             locale,
             setLocale,
-            stories: getStories(locale),
+            stories: storiesByLocale[locale] ?? storiesByLocale.EN ?? [],
+            clusters,
             t: UI_BY_LOCALE[locale] ?? uiEN,
             hydrated,
         }),
-        [locale, setLocale, hydrated]
+        [locale, setLocale, hydrated, storiesByLocale, clusters]
     );
 
     return (

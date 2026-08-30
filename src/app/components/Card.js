@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { cornerBracketHover, retroBorder, terminalChrome } from "../lib/terminalStyles";
 import { useLocale } from "../lib/LocaleContext";
+import { formatPublishedDate, formatVersion } from "../lib/storyUtils";
 
 const ReadHint = styled.span`
     opacity: 0;
@@ -20,9 +21,20 @@ const CoverImage = styled.img`
     transform: scale(1);
 `;
 
-export default function Card({ storytitle, storyReadingTime, storyTags, storyCoverPath }) {
+export default function Card({
+    storytitle,
+    storyReadingTime,
+    storyTags,
+    storyCoverPath,
+    storyVersion,
+    storyPublishedDate,
+    storyPublishedAt,
+    storyAuthor,
+}) {
     const { t } = useLocale();
     const c = t.card;
+    const publishedDate =
+        storyPublishedDate || formatPublishedDate(storyPublishedAt) || "";
 
     return (
         <CardWrapper>
@@ -47,9 +59,9 @@ export default function Card({ storytitle, storyReadingTime, storyTags, storyCov
                     </CardTags>
                     <CardReadingTime>{c.readingTimePrefix} {storyReadingTime}</CardReadingTime>
                     <CardMetaData>
-                        <small>V1.0.0</small>
-                        <small>18112025</small>
-                        <small>Skltrn</small>
+                        <MetaItem>{formatVersion(storyVersion)}</MetaItem>
+                        <MetaDate>{publishedDate || "--------"}</MetaDate>
+                        <MetaItem>{storyAuthor || "Skltrn"}</MetaItem>
                     </CardMetaData>
                 </CardBody>
             </CardBodyWrapper>
@@ -204,5 +216,13 @@ const CardMetaData = styled.div`
     opacity: 0.55;
     font-family: var(--font-geist-mono), ui-monospace, monospace;
     letter-spacing: 0.06em;
+`;
+
+const MetaItem = styled.small`
     text-transform: uppercase;
+`;
+
+const MetaDate = styled.small`
+    text-transform: none;
+    letter-spacing: 0.04em;
 `;
