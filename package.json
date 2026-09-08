@@ -14,6 +14,7 @@
     "@sanity/client": "^7.26.2",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^3.99.0",
+    "easymde": "2.18",
     "next": "^15.5.7",
     "next-sanity": "^9.12.3",
     "react": "^19.0.1",

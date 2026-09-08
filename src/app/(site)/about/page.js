@@ -1,7 +1,7 @@
 "use client"
 import styled from "styled-components";
-import { retroBorder, terminalChrome, textGlow } from "../lib/terminalStyles";
-import { useLocale } from "../lib/LocaleContext";
+import { retroBorder, terminalChrome, textGlow } from "../../lib/terminalStyles";
+import { useLocale } from "../../lib/LocaleContext";
 
 export default function AboutPage() {
     const { t } = useLocale();

@@ -1,0 +1,87 @@
+/* Isolate Sanity Studio from public site chrome / CSS */
+
+html:has(.sanity-studio-root),
+html:has(.sanity-studio-root) body {
+  max-width: none;
+  overflow: auto;
+  height: 100%;
+}
+
+html:has(.sanity-studio-root) body {
+  padding: 0;
+  margin: 0;
+  background: #101112;
+  background-image: none;
+  color: inherit;
+}
+
+.sanity-studio-root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Restore EasyMDE / CodeMirror layout broken by global resets */
+.sanity-studio-root .EasyMDEContainer,
+.sanity-studio-root .EasyMDEContainer * {
+  box-sizing: border-box;
+}
+
+.sanity-studio-root .EasyMDEContainer .CodeMirror {
+  height: auto;
+  min-height: 300px;
+  max-width: 100%;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #fff;
+}
+
+.sanity-studio-root .EasyMDEContainer .CodeMirror-scroll {
+  min-height: 300px;
+  max-width: 100%;
+}
+
+.sanity-studio-root .EasyMDEContainer .CodeMirror-sizer {
+  max-width: 100% !important;
+}
+
+.sanity-studio-root .EasyMDEContainer .CodeMirror-lines {
+  padding: 8px 4px;
+}
+
+.sanity-studio-root .EasyMDEContainer .CodeMirror pre.CodeMirror-line,
+.sanity-studio-root .EasyMDEContainer .CodeMirror pre.CodeMirror-line-like {
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 0 8px;
+}
+
+.sanity-studio-root .EasyMDEContainer .CodeMirror-cursor {
+  border-left: 1px solid #111 !important;
+  visibility: visible !important;
+}
+
+.sanity-studio-root .EasyMDEContainer .editor-toolbar {
+  opacity: 1;
+  border-top: 1px solid #cfcfcf;
+  border-left: 1px solid #cfcfcf;
+  border-right: 1px solid #cfcfcf;
+  background: #f7f7f7;
+}
+
+.sanity-studio-root .EasyMDEContainer .CodeMirror,
+.sanity-studio-root .EasyMDEContainer .editor-preview,
+.sanity-studio-root .EasyMDEContainer .editor-toolbar {
+  border-color: #cfcfcf;
+}
+
+.sanity-studio-root .EasyMDEContainer .editor-preview,
+.sanity-studio-root .EasyMDEContainer .editor-preview-side {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: normal;
+  word-break: break-word;
+}

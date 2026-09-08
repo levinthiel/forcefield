@@ -31,17 +31,40 @@ html {
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 body {
+  margin: 0;
+  color: var(--beige);
+  position: relative;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.site-shell {
+  min-height: 100vh;
   padding: 40px;
+  overflow-x: hidden;
   background-color: var(--black);
   background-image: var(--ff-dot-gradient);
   background-size: var(--ff-dot-size) var(--ff-dot-size);
   background-attachment: fixed;
   color: var(--beige);
   position: relative;
+}
+
+.site-shell * {
+  padding: 0;
+  margin: 0;
+}
+
+.site-shell a {
+  color: inherit;
+  text-decoration: none;
 }
 
 ::selection {
@@ -84,17 +107,6 @@ body {
   mix-blend-mode: overlay;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -102,9 +114,9 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  .site-shell *,
+  .site-shell *::before,
+  .site-shell *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -112,7 +124,7 @@ a {
 }
 
 @media (max-width: 530px) {
-  body {
+  .site-shell {
     padding: 16px;
   }
 }

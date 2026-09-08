@@ -1,13 +1,13 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import { useLocale } from "../../lib/LocaleContext";
+import { useLocale } from "../../../lib/LocaleContext";
 import ReactMarkdown from "react-markdown";
 import styled, { css } from "styled-components";
 import Image from 'next/image'
 import { MdLightMode } from "react-icons/md";
 import { MdNightlight } from "react-icons/md";
 import { FaArrowUp, FaHouse } from "react-icons/fa6";
-import { cornerBracketHover, retroBorder, terminalChrome, textGlow } from "../../lib/terminalStyles";
+import { cornerBracketHover, retroBorder, terminalChrome, textGlow } from "../../../lib/terminalStyles";
 import Link from "next/link";
 
 export default function StoryPage({ params }) {

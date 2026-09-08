@@ -1,22 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Outfit, Poppins } from "next/font/google";
 import "./globals.css";
-import { Outfit } from 'next/font/google';
-import { Poppins } from 'next/font/google';
-import LocaleShell from "./components/LocaleShell";
-import { fetchSiteContent } from "../../sanity/lib/queries";
 
 const outfit = Outfit({
-  weight: '900',
-  subsets: ['latin'],
+  weight: "900",
+  subsets: ["latin"],
 });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
 const poppins = Poppins({
-  weight: ['200','400', '700'],
+  weight: ["200", "400", "700"],
   subsets: ["latin"],
 });
 
@@ -27,14 +24,18 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Force Field: Chronicles from the edge",
-  description: "A collection of thrilling science fiction short stories from the far reaches of the universe.",
-  keywords: ["science fiction", "sci-fi stories", "space horror", "short stories", "Force Field Chronicles"],
+  description:
+    "A collection of thrilling science fiction short stories from the far reaches of the universe.",
+  keywords: [
+    "science fiction",
+    "sci-fi stories",
+    "space horror",
+    "short stories",
+    "Force Field Chronicles",
+  ],
   authors: [{ name: "Skeletron" }],
-  
   icons: {
-    icon: [
-    { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
-    ]
+    icon: [{ url: "/favicon.png", sizes: "32x32", type: "image/png" }],
   },
   openGraph: {
     title: "Force Field: Chronicles from the Edge",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "Force Field",
     images: [
       {
-        url: "/logo-portrait.png", // must be in /public
+        url: "/logo-portrait.png",
         width: 376,
         height: 491,
         alt: "Force Field Cover",
@@ -54,22 +55,17 @@ export const metadata: Metadata = {
   },
 };
 
-export const revalidate = 60;
-
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { storiesByLocale, clusters } = await fetchSiteContent();
-
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${outfit.className}`}>
-        <div className="crt-overlay" aria-hidden="true" />
-        <LocaleShell storiesByLocale={storiesByLocale} clusters={clusters}>
-          {children}
-        </LocaleShell>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${outfit.className}`}
+      >
+        {children}
       </body>
     </html>
   );
